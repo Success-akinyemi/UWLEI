@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | UWELI</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="./Styles/index.css" />
+    <link rel="stylesheet" href="./Styles/sidebar.css" />
+    <link rel="stylesheet" href="./Styles/dashboard.css" />
+</head>
+<body>
+    
+    <div class="flex items-start w-full relative h-screen">
+        <!--SIDEBAR-->
+        <div id="sidebar-container" class="flex-[15%] bg-blur-500 "></div>
+
+        <div class="flex-[85%] w-full min-h-screen bg-gray-50">
+            
+            <!--TOP-->
+            <div class="topNav border-b-[1px] border-b-gray-300">
+                <h3 class="text-gray-600 text-[21px] font-bold">Dashboard</h3>
+            </div>
+
+            <!--CONTENT-->
+            <div class=""></div>
+
+        </div>
+    </div>
+
+    <!--JS-->
+    <script src="./Script/auth.js"></script>
+    <script src="./Script/injectSidebar.js"></script>
+    <script>
+        //protectPage();
+    </script>
+</body>
+</html>
