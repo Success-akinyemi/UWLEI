@@ -2,6 +2,12 @@
 @theme {
     --color-yellow: #fff;
 
+        /** RESPONSIVNESS **/
+    --breakpoint-small-phone: 400px;
+    --breakpoint-phone: 640px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-small-pc: 1200px;
+    --breakpoint-pc: 1400px;
 }
 
 *{
@@ -93,4 +99,26 @@
 
 .btn2:hover{
     transform: scale(0.9);
+}
+
+@media screen and (max-width: 648px) {
+    .page {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .padx{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .page {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .padx{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 }

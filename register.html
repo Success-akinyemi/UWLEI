@@ -10,6 +10,16 @@
   <link rel="stylesheet" href="./Styles/auth.css" />
   <!-- ✅ load api.js as module -->
   <script type="module" src="./Script/api.js"></script>
+  <style type="text/tailwindcss">
+      @theme {
+          /** RESPONSIVNESS **/
+      --breakpoint-small-phone: 400px;
+      --breakpoint-phone: 640px;
+      --breakpoint-tablet: 768px;
+      --breakpoint-small-pc: 1200px;
+      --breakpoint-pc: 1400px;
+      }
+  </style>
 </head>
 <body>
   <div class="flex flex-col authPage">
@@ -20,7 +30,7 @@
     </div>
 
     <!-- AUTH CARD -->
-    <div class="flex flex-col gap-[24px] items-start justify-center w-[400px] authCard">
+    <div class="flex flex-col gap-[24px] items-start justify-center w-[400px] max-phone:w-[90%] authCard">
       <a href="index.html" class="bg-amber-500 h-[40px] w-[40px] rounded-full flex items-center justify-center">
         <i class="fa-solid fa-arrow-left"></i>
       </a>

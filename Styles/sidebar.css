@@ -5,6 +5,10 @@
     padding-right: 8px;
 }
 
+.mobileClass {
+    display: none;
+}
+
 .menuLinks{
     margin-top: 3rem;
 }
