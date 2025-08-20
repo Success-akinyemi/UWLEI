@@ -4,3 +4,17 @@
     padding-left: 8px;
     padding-right: 8px;
 }
+
+.menuLinks{
+    margin-top: 3rem;
+}
+
+.menuLinks .menuLink{
+    padding: 10px 12px;
+    color: #f59e0b;
+    border-radius: 8px;
+}
+
+.menuLinks .menuLink:hover{
+    background: #f59f0b65;
+}

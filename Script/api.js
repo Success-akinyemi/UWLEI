@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = Object.fromEntries(formData.entries());
 
     console.log("Form Data:", data);
+    window.location.href = '../dashboard.html'
     return
 
     // Example API request
