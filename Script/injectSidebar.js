@@ -11,18 +11,19 @@ function loadComponent(url, containerId) {
       const menuBtn = document.getElementById("menu-btn");
       const sidebar = document.getElementById("sidebar");
 
-      //if (menuBtn && sidebar) {
-      //  menuBtn.addEventListener("click", () => {
-      //      console.log('BUTTOM CLICKED')
-      //    sidebar.classList.toggle("mobileClass"); // show/hide
-      //  });
-      //}
+      if (menuBtn && sidebar) {
+        menuBtn.addEventListener("click", () => {
+            console.log('BUTTOM CLICKED')
+            sidebar.classList.toggle("mobileClass"); // show/hide
+        });
+      }
     })
     .catch(err => console.error("Error loading component:", err));
 }
 
 // Load sidebar into container
 loadComponent("./sidebar.html", "sidebar-container");
+//loadComponent("./sidebar.html", "mobile-sidebar-container");
 
 function loadMobileSidebarComponent(url, containerId) {
   fetch(url)
@@ -46,4 +47,4 @@ function loadMobileSidebarComponent(url, containerId) {
 }
 
 // Load sidebar into container
-loadMobileSidebarComponent("./sidebar.html", "mobile-sidebar-container");
+//loadMobileSidebarComponent("./sidebar.html", "mobile-sidebar-container");

@@ -5,10 +5,6 @@
     padding-right: 8px;
 }
 
-.mobileClass {
-    display: none;
-}
-
 .menuLinks{
     margin-top: 3rem;
 }
@@ -21,4 +17,10 @@
 
 .menuLinks .menuLink:hover{
     background: #f59f0b65;
+}
+
+@media (max-width: 768px) {
+  .mobileClass {
+    display: none;
+  }
 }
