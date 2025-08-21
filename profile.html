@@ -9,22 +9,38 @@
     <link rel="stylesheet" href="./Styles/index.css" />
     <link rel="stylesheet" href="./Styles/sidebar.css" />
     <link rel="stylesheet" href="./Styles/dashboard.css" />
+    <style type="text/tailwindcss">
+        @theme {
+            /** RESPONSIVNESS **/
+            --breakpoint-small-phone: 400px;
+            --breakpoint-phone: 640px;
+            --breakpoint-tablet: 768px;
+            --breakpoint-small-pc: 1200px;
+            --breakpoint-pc: 1400px;
+        }
+    </style>
 </head>
 <body>
     
     <div class="flex items-start w-full relative h-screen">
         <!--SIDEBAR-->
-        <div id="sidebar-container" class="flex-[15%] bg-blur-500 "></div>
+        <div id="sidebar-container" class="sidebar-container flex-[15%] max-small-pc:flex-[20%] max-tablet:flex-[0]"></div>
 
-        <div class="flex-[85%] w-full min-h-screen bg-gray-50">
+        <!--CONTAINER-->
+        <div class="flex-[85%] max-small-pc:flex-[80%] w-full min-h-screen bg-gray-50">
             
             <!--TOP-->
-            <div class="topNav border-b-[1px] border-b-gray-300">
+            <div class="topNav border-b-[1px] border-b-gray-300 flex items-center justify-between">
                 <h3 class="text-gray-600 text-[21px] font-bold">Profile</h3>
+
+                <!--MOBILE MENU BAR-->
+                <div id="menu-btn" class="hidden max-tablet:flex cursor-pointer">
+                    <i class="fa-solid fa-bars text-[24px]"></i>
+                </div>
             </div>
 
             <!--CONTENT-->
-            <div class=""></div>
+            <div class="contentpad">ewdf</div>
 
         </div>
     </div>
