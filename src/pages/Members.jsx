@@ -63,7 +63,7 @@ function Members() {
         </thead>
         <tbody>
           {membersListData.map((member, idx) => (
-            <tr key={idx} className="hover:bg-gray-50">
+            <tr key={idx} className="hover:bg-gray-50 text-[13px]">
               <td className="px-4 py-2 border-b-[1px]">{member.firstName}</td>
               <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.lastName}</td>
               <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.email}</td>
