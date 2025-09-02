@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+@import "tailwindcss";
+
+/**DARK MODE**/
+@custom-variant dark (&:where(.dark, .dark *));
+
+@font-face {
+  font-family: 'Champs';
+  src: url('./Asset/fonts/champs.otf') format('opentype');
+  /*
+  font-weight: normal;
+  font-style: normal;
+  */
+}
+
+@theme{
+    /** COLOR **/
+    --color-amber-yellow: #f59e0b;
+    --color-amber-yellow-light: #f59f0b65;
+
+
+
+
+    /**FONT**/
+    --font-title: "Champs", arial;
+    --font-inter: "Inter", sans-serif;
+
+
+    /** RESPONSIVNESS **/
+    --breakpoint-small-phone: 400px;
+    --breakpoint-phone: 640px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-small-pc: 1200px;
+    --breakpoint-pc: 1400px;
+}
+
+/**CUSTOM STYLES**/
+@layer components {
+
+}
+
+
+.page {
+    padding-left: 7rem;
+    padding-right: 7rem;
+    max-width: 100vw;
+    overflow-x: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.padx{
+    padding-left: 7rem;
+    padding-right: 7rem;
+}
+
+.btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logo {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.logo p{
+    font-size: 19px;
+    font-weight: bold;
+    color: #f59e0b;
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+    width: 100%;
+}
+
+.label {
+    font-size: 15px;
+}
+
+.input {
+    width: 100%;
+    background: rgb(240, 238, 238);
+    padding: 12px;
+    outline: none;
+    border: 1px solid rgb(180, 179, 179);
+    border-radius: 10px;
+}
+
+.btn2 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.5s ease-in-out;
+}
+
+.btn2:hover{
+    transform: scale(0.9);
+}
+
+/* NAVBAR */
+.navbar {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.authPage{
+    padding: 20px;
+}
+
+.authCard{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2rem;
+}
+
+/* SIDEBAR */
+.sidebar {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.menuLinks{
+    margin-top: 3rem;
+}
+
+.menuLinks .menuLink{
+    padding: 10px 12px;
+    color: #f59e0b;
+    border-radius: 8px;
+}
+
+.menuLinks .menuLink:hover{
+    background: #f59f0b65;
+}
+
+/* DASHBOARD */
+.topNav {
+    padding: 20px;
+}
+
+.contentpad{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: rgb(159, 157, 3);
+}
+
+
+@media screen and (max-width: 648px) {
+    .page {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    .padx{
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .page {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .padx{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-down {
+  animation: slide-down 0.5s ease-out forwards;
+}
+
+/*SCROLL BAR*/
+/* Container with scroll */
+.scroll-bar {
+  overflow-y: auto;
+  scrollbar-width: thin;              /* Firefox */
+  scrollbar-color: transparent transparent; /* Default hidden */
+}
+
+/* Chrome, Edge, Safari */
+.scroll-bar::-webkit-scrollbar {
+  width: 4px;
+  background-color: transparent;  /* Hide by default */
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background-color: transparent;  /* Hide by default */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* On hover, show black scrollbar */
+.scroll-bar:hover::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+.scroll-bar:hover {
+  scrollbar-color: #000000 transparent; /* Firefox */
+}
+
+/* notification card */
+@keyframes shake {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(-15px); }
+  50% { transform: translateY(15px); }
+  75% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+.toast-shake {
+  animation: shake 0.5s ease-in-out;
+}
