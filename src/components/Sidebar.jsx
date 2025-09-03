@@ -16,7 +16,7 @@ function Sidebar({ toggleMenu, showMenu }) {
         fixed left-0 top-0 flex flex-col bg-white z-50
         transition-transform duration-300 ease-in-out
         ${showMenu ? 'max-tablet:translate-x-0' : 'max-tablet:-translate-x-full'}
-        max-tablet:w-[50%] max-tablet:h-screen
+        max-tablet:w-[80%] max-tablet:h-screen
       `}
     >
       <div className="logo flex items-center gap-2 p-4">

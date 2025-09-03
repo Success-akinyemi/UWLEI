@@ -197,11 +197,23 @@ function Register() {
           
           {/** National Id */}
           <div className="inputGroup">
-            <label className="label">National ID</label>
+            <label className="label">National ID Photo</label>
             <input
               id="nationalId"
+              type="file"
+              placeholder="Your National Id"
+              className="input"
+              required
+            />
+          </div>
+
+          {/** Passport */}
+          <div className="inputGroup">
+            <label className="label">Passport</label>
+            <input
+              id="passport"
               onChange={handleChange}
-              type="text"
+              type="file"
               placeholder="Your National Id"
               className="input"
               required

@@ -44,7 +44,7 @@ function Members() {
                 <div className="flex flex-col gap-4">
                     <h3 className='text-amber-yellow font-semibold text-[24px] '>Members you've added</h3>
 
-                    <div className="flex w-[90%] overflow-x-auto">
+                    <div className="flex w-full overflow-x-auto">
       <table className="min-w-full border border-gray-200 rounded-lg">
         <thead className="text-[12px]">
           <tr>

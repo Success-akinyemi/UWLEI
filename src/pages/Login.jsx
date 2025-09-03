@@ -36,7 +36,7 @@ function Login() {
     </div>
 
     {/**AUTH CARD */}
-    <div class="flex flex-col gap-[24px] items-start justify-center w-[400px] authCard">
+    <div class="flex flex-col gap-[24px] items-start justify-center w-[400px] max-phone:w-[90%] authCard">
       <Link to="/" class="bg-amber-500 h-[40px] w-[40px] rounded-full flex items-center justify-center">
         <i class="fa-solid fa-arrow-left"></i>
       </Link>

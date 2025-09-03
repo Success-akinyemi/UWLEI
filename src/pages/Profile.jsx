@@ -1,11 +1,40 @@
 import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
+import { CgProfile } from "react-icons/cg";
+import AccountOverview from '../components/AccountOverview';
+import Security from '../components/Security';
+import AccountSettings from '../components/AccountSettings';
+import Activity from '../components/Activity';
 
 function Profile() {
     const [ showMenu, setShowMenu ] = useState(false)
+    const [ activeTab, setActiveTab ] = useState('accountOverview')
 
     const toggleMenu = (body) => {
         setShowMenu(!showMenu)
+    }
+
+    const profileTabs = [
+        {
+            name: 'Account Overview',
+            slug: 'accountOverview'
+        },
+        {
+            name: 'Security',
+            slug: 'security'
+        },
+        {
+            name: 'Account Settings',
+            slug: 'accountSettings'
+        },
+        {
+            name: 'Activity',
+            slug: 'activity'
+        }
+    ]
+
+    const handleSelectedTab = (slug) => {
+        setActiveTab(slug)
     }
 
     return (
@@ -15,7 +44,7 @@ function Profile() {
             <Sidebar toggleMenu={toggleMenu} showMenu={showMenu} />
         </div>
 
-        {/**MAIN SECTIO */}
+        {/**MAIN SECTION */}
         <div className="flex-[85%] max-small-pc:flex-[80%] w-full min-h-screen bg-gray-50">
             
             {/**TOP */}
@@ -30,7 +59,54 @@ function Profile() {
 
             {/**CONTENT */}
             <div className="contentpad">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates praesentium vero recusandae rem temporibus eaque exercitationem facere, quibusdam dolore assumenda qui nihil, corporis repellendus necessitatibus! Odio labore, inventore voluptatum fuga repellat esse quam! Animi aperiam et aut quaerat molestiae reiciendis aspernatur perspiciatis deserunt odio laboriosam repudiandae, modi quas facilis inventore velit dolore sit, cumque repellat. Facilis neque, distinctio dolores, consequatur impedit provident pariatur nemo harum soluta suscipit sequi nulla alias cumque? Aliquam delectus, sunt temporibus minima vel porro nobis necessitatibus. Quia nesciunt perspiciatis labore, vel aspernatur veniam quasi sit, ad delectus praesentium animi optio placeat. Saepe recusandae dolorum ratione asperiores maxime, laboriosam vero eligendi cum, vel pariatur labore quis, a alias sunt et ipsa ea delectus praesentium magni. Tenetur tempora architecto, consectetur dolore labore aliquid doloribus corrupti dolorum aspernatur exercitationem, veritatis debitis dolor. Esse magnam tempora animi obcaecati, aliquam voluptatibus porro dolore harum fuga blanditiis doloremque tenetur nobis fugit rerum ullam sit, labore inventore dolor sequi accusamus nulla asperiores modi numquam? Quas possimus nisi nulla est sed magnam cum nihil aliquam officiis quos quod modi, excepturi atque ab error accusantium, alias, vero illum totam! Porro praesentium omnis sunt repudiandae. Doloribus ab officiis sint distinctio, obcaecati aperiam recusandae et ut illo sapiente aliquam ipsum libero exercitationem ratione. Minus impedit nam pariatur consequuntur accusantium placeat et voluptas amet provident illo corrupti numquam magnam natus maiores quaerat debitis obcaecati eius voluptatum consequatur, corporis exercitationem est nemo quibusdam. Autem sunt praesentium minima ratione sed nostrum, nulla porro provident illo nihil? Magnam, quas. Ipsa blanditiis numquam nobis pariatur quia ex fugiat accusamus quis omnis et sequi ullam dolorum velit, iure beatae, cumque unde explicabo ut facilis, iste delectus atque? Fugit distinctio debitis repellat iste odio dolores, voluptatem impedit, asperiores libero reprehenderit sequi hic nam, quo maiores deleniti. Rerum non ab explicabo, sapiente aspernatur neque praesentium dolores quisquam quis nihil sequi repellat possimus cumque. Quasi pariatur, ipsum ad optio id voluptates repellat dolor voluptatem perferendis laboriosam sequi consectetur maiores natus, rerum at, ratione hic. Consequatur quis unde sed numquam veniam at odio nihil facilis? Vel aliquam minus dolore quaerat harum non saepe delectus, quia consequuntur impedit modi doloremque quibusdam officiis enim at qui perspiciatis laborum quod dolorem! Quia possimus, aut cupiditate corporis distinctio non ex reiciendis culpa. Molestiae sit consectetur, deserunt numquam impedit distinctio non explicabo repudiandae magnam pariatur expedita! Molestias tenetur autem expedita ad. Inventore vitae asperiores earum nisi repudiandae.
+                {/**TOP CARD */}
+                <div className="w-full relative overflow-hidden rounded-[20px]">
+                    <div className="w-full h-[200px] max-phone:h-[150px] bg-amber-yellow-light"></div>
+
+                    <div className="w-full h-[200px] bg-black"></div>
+
+                    {/**abosolute card */}
+                    <div className="absolute top-1/2 left-[3%] -translate-y-1/2 flex justify-center">
+
+                        <div className="flex gap-[20px] items-end">
+                            {/**Circle */}
+                            <div className="h-[150px] w-[150px] max-phone:h-[120px] max-phone:w-[120px] border-[3px] border-white rounded-full">
+                                <CgProfile className='w-full h-full text-white' />
+                            </div>
+
+                            {/**INFO */}
+                            <div className="flex flex-col gap-3 text-white mt-[1rem] max-phone:mt-[1rem]">
+                                <h2 className='text-[24px] font-bold max-phone:text-[20px]'>John Doe</h2>
+                                <p className='text-[17px] max-phone:text-[15px]'>johndoe@gmail.com</p>
+
+                                <div className="flex items-center gap-4">
+                                    <div className="btn bg-white text-black font-semibold">Edit Profile</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex flex-col gap-2 mt-[2rem]">
+                    <div className="bg-white shadow-2xl rounded-t-[20px] px-[0px] border-[1px] border-gray-200">
+                        <div className="flex items-center gap-5 max-phone:gap-2">
+                            {
+                                profileTabs.map((i, idx) => (
+                                    <div key={idx} onClick={() => handleSelectedTab(i.slug)} className={`flex flex-col gap-2 p-3 text-center font-medium cursor-pointer max-phone:text-[14px] ${ i.slug === activeTab ? `text-amber-yellow border-b-[2px] border-b-amber-yellow` : `hover:text-amber-yellow hover:border-b-[2px] hover:border-b-amber-yellow` } border-b-[2px] border-b-transparent`}>
+                                        {i.name}
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div className="bg-white shadow-2xl rounded-b-[20px]  border-[1px] border-gray-200 py-[25px] px-[20px]">
+                        {activeTab === 'accountOverview' && (<AccountOverview handleSelectedTab={handleSelectedTab} />)}
+                        {activeTab === 'security' && (<Security />)}
+                        {activeTab === 'accountSettings' && (<AccountSettings />)}
+                        {activeTab === 'activity' && (<Activity />)}
+                    </div>
+                </div>
             </div>
 
         </div>
