@@ -141,12 +141,25 @@ export function NewMemberModal({ showModal, toggleModal }) {
 
                     {/** National Id */}
                     <div className="inputGroup">
-                        <label className="label">National ID</label>
+                        <label className="label">National ID Photo</label>
                         <input
                             id="nationalId"
                             onChange={handleChange}
-                            type="text"
+                            type="file"
                             placeholder="Your National Id"
+                            className="input"
+                            required
+                        />
+                    </div>
+
+                    {/**PASSPORT */}
+                    <div className="inputGroup">
+                        <label className="label">Passport</label>
+                        <input
+                            id="passport"
+                            onChange={handleChange}
+                            type="file"
+                            placeholder="Your passport"
                             className="input"
                             required
                         />

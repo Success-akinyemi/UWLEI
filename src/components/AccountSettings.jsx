@@ -1,5 +1,22 @@
+import { useState } from "react"
 
 function AccountSettings() {
+    const [ changeEmail, setChangeEmail ] = useState(false)
+    const [ changeMobile, setChangeMobile ] = useState(false)
+    const [ formData, setFormData ] = useState({})
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.id]: e.target.value})
+    }
+
+    const handleChangeEmail = async () => {
+
+    }
+
+    const handleChangeMobile = async () => {
+
+    }
+
   return (
     <div className="flex flex-col">
         <div className="border-[1px] border-gray-300 rounded-[10px] text-gray-600 mt-8">
@@ -13,7 +30,7 @@ function AccountSettings() {
                     <div className="flex flex-col border-b-[1px] border-b-gray-300 w-full py-[20px] px-[10px]">
                         <div className="text-[17px] max-phone:text-[14px] font-semibold flex justify-between max-phone:flex-col gap-3 items-start">
                             <p className="">Email address</p>
-                            <div className="bg-gray-300 text-gray-600 font-normal py-[4px] px-[8px]">Change Email</div>
+                            <div onClick={() => setChangeEmail(true)} className="bg-gray-300 text-gray-600 font-normal py-[4px] px-[8px]">Change Email</div>
                         </div>
 
                         <div className="">
