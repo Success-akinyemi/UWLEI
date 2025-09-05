@@ -1,7 +1,6 @@
 import BgImg from '../Assets/Images/logoImg.jpg'
 import LogoImg from '../Assets/Images/logo.jpg'
 import { Link } from 'react-router-dom'
-import Navbar from '../components/Navbar'
 
 
 
@@ -16,7 +15,15 @@ function LandingPage() {
         </div>
 
         {/**NAVBAR */}
-        <Navbar toggleMenu={toggleMenu} title={'Home'}  />
+        <div class="w-full bg-white py-[32px] flex items-center justify-between padx navbar">
+            <div class="">
+                <img alt="logo" src={LogoImg} class="w-[70px] max-phone:w-[50px]" />
+            </div>
+
+            <div class="">
+                <Link to="/" class="text-amber-500 text-[21px] max-phone:text-[19px] font-semibold">Home</Link>
+            </div>
+        </div>
 
         {/**Showcase */}
         <div class="w-full h-screen relative flex flex-col padx items-start justify-center">
