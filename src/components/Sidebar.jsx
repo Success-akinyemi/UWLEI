@@ -27,7 +27,7 @@ function Sidebar({ toggleMenu, showMenu }) {
         </div>
 
         {/**Close icon */}
-        <div className="flex">
+        <div className="hidden max-tablet:flex cursor-pointer">
             <div onClick={toggleMenu} className="cursor-pointer">
                 <IoClose className='text-[32px] font-bold' />
             </div>
