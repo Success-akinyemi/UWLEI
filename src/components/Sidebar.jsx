@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import LogoImg from '../Assets/Images/logo.jpg'
 import { menuLinks } from '../data/menuLinks'
+import { IoClose } from "react-icons/io5";
 
 function Sidebar({ toggleMenu, showMenu }) {
   const links = menuLinks
@@ -19,9 +20,18 @@ function Sidebar({ toggleMenu, showMenu }) {
         max-tablet:w-[80%] max-tablet:h-screen
       `}
     >
-      <div className="logo flex items-center gap-2 p-4">
-        <img src={LogoImg} alt="logo" className="h-10 w-10 object-cover" />
-        <p className="font-semibold text-lg">UWLEI</p>
+      <div className="logo flex items-center justify-between gap-2 p-4">
+        <div className="">
+            <img src={LogoImg} alt="logo" className="h-10 w-10 object-cover" />
+            <p className="font-semibold text-lg">UWLEI</p>
+        </div>
+
+        {/**Close icon */}
+        <div className="flex">
+            <div onClick={toggleMenu} className="cursor-pointer">
+                <IoClose className='text-[32px] font-bold' />
+            </div>
+        </div>
       </div>
 
       <div className="flex flex-col gap-[4px] menuLinks max-tablet:text-[19px] p-2">
@@ -32,7 +42,7 @@ function Sidebar({ toggleMenu, showMenu }) {
             className={`menuLink p-2 rounded ${
               pathName === i.link ? 'bg-amber-yellow-light font-semibold' : ''
             }`}
-            onClick={toggleMenu} // close menu on link click (optional)
+            onClick={toggleMenu} 
           >
             {i.name}
           </Link>

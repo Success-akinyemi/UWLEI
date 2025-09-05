@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import { donationList } from '../data/donationList'
 import NewDonationModal from '../modal/NewDonationModal'
+import Navbar from '../components/Navbar'
 
 function Donation() {
     const [ showMenu, setShowMenu ] = useState(false)
@@ -28,14 +29,7 @@ function Donation() {
         <div className="flex-[85%] max-small-pc:flex-[80%] w-full min-h-screen bg-gray-50">
             
             {/**TOP */}
-            <div className="topNav border-b-[1px] border-b-gray-300 flex items-center justify-between">
-                <h3 className="text-gray-600 text-[21px] font-bold">Donation</h3>
-
-                {/**MOBILE MENU BAR */}
-                <div id="menu-btn" onClick={toggleMenu} className="hidden max-tablet:flex cursor-pointer">
-                    <i className="fa-solid fa-bars text-[24px]"></i>
-                </div>
-            </div>
+            <Navbar toggleMenu={toggleMenu} title={'Donation'}  />
 
             {/**CONTENT */}
             <div className="contentpad">

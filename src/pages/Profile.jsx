@@ -5,6 +5,7 @@ import AccountOverview from '../components/AccountOverview';
 import Security from '../components/Security';
 import AccountSettings from '../components/AccountSettings';
 import Activity from '../components/Activity';
+import Navbar from '../components/Navbar';
 
 function Profile() {
     const [ showMenu, setShowMenu ] = useState(false)
@@ -48,15 +49,8 @@ function Profile() {
         <div className="flex-[85%] max-small-pc:flex-[80%] w-full min-h-screen bg-gray-50">
             
             {/**TOP */}
-            <div className="topNav border-b-[1px] border-b-gray-300 flex items-center justify-between">
-                <h3 className="text-gray-600 text-[21px] font-bold">Profile</h3>
-
-                {/**MOBILE MENU BAR */}
-                <div id="menu-btn" onClick={toggleMenu} className="hidden max-tablet:flex cursor-pointer">
-                    <i className="fa-solid fa-bars text-[24px]"></i>
-                </div>
-            </div>
-
+            <Navbar toggleMenu={toggleMenu} title={'Profile'}  />
+            
             {/**CONTENT */}
             <div className="contentpad">
                 {/**TOP CARD */}
