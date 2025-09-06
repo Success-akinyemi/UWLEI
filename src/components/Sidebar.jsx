@@ -23,7 +23,7 @@ function Sidebar({ toggleMenu, showMenu }) {
       <div className="logo flex items-center justify-between gap-2 p-4">
         <div className="">
             <img src={LogoImg} alt="logo" className="h-10 w-10 object-cover" />
-            <p className="font-semibold text-lg">UWLEI</p>
+            <p className="font-semibold text-lg !text-brown">UWLEI</p>
         </div>
 
         {/**Close icon */}
@@ -40,7 +40,7 @@ function Sidebar({ toggleMenu, showMenu }) {
             key={idx}
             to={`/${i.link}`}
             className={`menuLink p-2 rounded ${
-              pathName === i.link ? 'bg-amber-yellow-light font-semibold' : ''
+              pathName === i.link ? 'bg-primary-green !text-white font-semibold' : ''
             }`}
             onClick={toggleMenu} 
           >

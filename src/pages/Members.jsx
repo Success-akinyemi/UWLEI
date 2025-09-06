@@ -38,11 +38,11 @@ function Members() {
             {/**CONTENT */}
             <div className="contentpad">
                 <div onClick={toggleModal} className="flex items-end justify-end">
-                    <div className="btn2 bg-amber-yellow">Add new Member</div>
+                    <div className="btn2 bg-amber-yellow">Add new Beneficiaries</div>
                 </div>
 
-                <div className="flex flex-col gap-4">
-                    <h3 className='text-amber-yellow font-semibold text-[24px] '>Members you've added</h3>
+                <div className="flex flex-col gap-4 max-phone:mt-4">
+                    <h3 className='text-primary-green font-semibold text-[24px] '>Beneficiaries you've added</h3>
 
                     <div className="flex w-full overflow-x-auto">
                         <table className="min-w-full border border-gray-200 rounded-lg">

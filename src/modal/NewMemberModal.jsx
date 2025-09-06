@@ -4,6 +4,7 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { State } from "country-state-city";
 import { useState } from "react";
+import { IoClose } from "react-icons/io5";
 
 export function NewMemberModal({ showModal, toggleModal }) {
     const [formData, setFormData] = useState({});
@@ -51,12 +52,12 @@ export function NewMemberModal({ showModal, toggleModal }) {
                 <div className="flex justify-end my-4">
                     {/**CLOSE ICON */}
                     <div id="menu-btn" onClick={toggleModal} className="cursor-pointer">
-                        <i class="fa-solid fa-xmark text-[24px]"></i>
+                        <IoClose className='text-[32px] font-bold' />
                     </div>
                 </div>
 
                 <div className="">
-                    <h3 className='font-semibold text-amber-yellow text-[19px]'>Add New Member</h3>
+                    <h3 className='font-semibold text-[19px] text-primary-green'>Add New Beneficiaries</h3>
                     <p className='text-[15px] '>fill up form below to add a new member</p>
                 </div>
 
@@ -69,8 +70,8 @@ export function NewMemberModal({ showModal, toggleModal }) {
                         <label className="label">Last Name</label>
                         <input type="text" id='lastName' onChange={handleChange} className="input" />
                     </div>
-                    <div className="inputGroup">
-                        <label className="label">Email</label>
+                    <div className="inputGroup">{/**optional */}
+                        <label className="label">Email (Optional)</label>
                         <input type="email" id='email' onChange={handleChange} className="input" />
                     </div>
                     <div className="inputGroup">
@@ -91,7 +92,7 @@ export function NewMemberModal({ showModal, toggleModal }) {
 
                     {/** ✅ State Dropdown (disabled if no country selected) */}
                     <div className="inputGroup">
-                        <label className="label">State</label>
+                        <label className="label">State/Region</label>
                         <Select
                             options={states || []}
                             onChange={handleStateChange}

@@ -55,7 +55,7 @@ function Profile() {
             <div className="contentpad">
                 {/**TOP CARD */}
                 <div className="w-full relative overflow-hidden rounded-[20px]">
-                    <div className="w-full h-[200px] max-phone:h-[150px] bg-amber-yellow-light"></div>
+                    <div className="w-full h-[200px] max-phone:h-[150px] bg-brown"></div>
 
                     <div className="w-full h-[200px] bg-black"></div>
 
@@ -74,7 +74,7 @@ function Profile() {
                                 <p className='text-[17px] max-phone:text-[15px]'>johndoe@gmail.com</p>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="btn bg-white text-black font-semibold">Edit Profile</div>
+                                    <div className="btn bg-white font-semibold text-white">Edit Profile</div>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ function Profile() {
                         <div className="flex items-center gap-5 max-phone:gap-2">
                             {
                                 profileTabs.map((i, idx) => (
-                                    <div key={idx} onClick={() => handleSelectedTab(i.slug)} className={`flex flex-col gap-2 p-3 text-center font-medium cursor-pointer max-phone:text-[14px] ${ i.slug === activeTab ? `text-amber-yellow border-b-[2px] border-b-amber-yellow` : `hover:text-amber-yellow hover:border-b-[2px] hover:border-b-amber-yellow` } border-b-[2px] border-b-transparent`}>
+                                    <div key={idx} onClick={() => handleSelectedTab(i.slug)} className={`flex flex-col gap-2 p-3 text-center font-medium cursor-pointer max-phone:text-[14px] ${ i.slug === activeTab ? `text-primary-green border-b-[2px] border-b-primary-green` : `hover:text-primary-green hover:border-b-[2px] hover:border-b-primary-green` } border-b-[2px] border-b-transparent`}>
                                         {i.name}
                                     </div>
                                 ))

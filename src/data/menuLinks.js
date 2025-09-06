@@ -4,7 +4,7 @@ export const menuLinks = [
         link: 'dashboard'
     },
     {
-        name: 'Members',
+        name: 'Beneficiaries',
         link: 'members'
     },
     {

@@ -6,6 +6,7 @@ import countryList from "react-select-country-list";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { State } from "country-state-city";
+import { FaArrowLeft } from "react-icons/fa6";
 
 function Register() {
   const [formData, setFormData] = useState({});
@@ -65,16 +66,16 @@ function Register() {
     <div className="flex flex-col authPage">
       <div className="logo">
         <img alt="logo" src={LogoImg} />
-        <p>UWLEI</p>
+        <p className="!text-brown">UWLEI</p>
       </div>
 
       {/** AUTH CARD */}
       <div className="flex flex-col gap-[24px] items-start justify-center w-[400px] max-phone:w-[90%] authCard">
         <Link
           to="/"
-          className="bg-amber-500 h-[40px] w-[40px] rounded-full flex items-center justify-center"
+          className="bg-primary-green h-[40px] w-[40px] rounded-full flex items-center justify-center"
         >
-          <i className="fa-solid fa-arrow-left"></i>
+            <FaArrowLeft className='text-[24px] text-white' />
         </Link>
 
         <h3 className="text-[24px] font-medium text-gray-700">
@@ -84,12 +85,25 @@ function Register() {
         <form id="registerForm" className="flex flex-col gap-[16px] w-full">
           {/** First Name */}
           <div className="inputGroup">
-            <label className="label">Name</label>
+            <label className="label">Username</label>
+            <input
+              id="username"
+              onChange={handleChange}
+              type="text"
+              placeholder="Enter username"
+              className="input"
+              required
+            />
+          </div>
+
+          {/** First Name */}
+          <div className="inputGroup">
+            <label className="label">First Name</label>
             <input
               id="firstName"
               onChange={handleChange}
               type="text"
-              placeholder="Your Name"
+              placeholder="Your First name"
               className="input"
               required
             />
@@ -97,12 +111,12 @@ function Register() {
 
           {/** Last Name */}
           <div className="inputGroup">
-            <label className="label">Name</label>
+            <label className="label">Last Name</label>
             <input
               id="lastName"
               onChange={handleChange}
               type="text"
-              placeholder="Your Name"
+              placeholder="Your Last name"
               className="input"
               required
             />
@@ -147,7 +161,7 @@ function Register() {
 
           {/** ✅ State Dropdown (disabled if no country selected) */}
           <div className="inputGroup">
-            <label className="label">State</label>
+            <label className="label">State/Region</label>
             <Select
               options={states || []}
               onChange={handleStateChange}
@@ -271,13 +285,13 @@ function Register() {
 
           <div>
             Already have an account?{" "}
-            <Link to="/login" className="text-amber-500 underline">
+            <Link to="/login" className="text-primary-green underline">
               Login
             </Link>
           </div>
 
           <div>
-            <button type="submit" className="btn2 bg-amber-500 w-full">
+            <button type="submit" className="btn2 bg-primary-green w-full">
               Sign Up
             </button>
           </div>

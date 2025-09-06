@@ -4,7 +4,7 @@ function AccountOverview({ handleSelectedTab }) {
   return (
     <div className="flex flex-col">
 
-      <div className="flex flex-col w-full p-5 bg-amber-yellow text-white gap-2 rounded-[20px]">
+      <div className="flex flex-col w-full p-5 bg-primary-green text-white gap-2 rounded-[20px]">
         <h2 className="text-[28px] font-bold max-phone:text-[18px]">Welcome back, user!</h2>
         <p className="text-[17px] max-phone:text-[14px]">Your coordinator engagement journey continues. Here's an overview of your account.</p>
       </div>

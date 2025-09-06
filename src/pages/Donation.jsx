@@ -38,7 +38,7 @@ function Donation() {
                 </div>
 
                 <div className="flex flex-col gap-4 max-phone:mt-[20px]">
-                    <h3 className='text-amber-yellow font-semibold text-[24px] max-phone:text-[18px]'>Past Donation Histroy</h3>
+                    <h3 className='text-primary-green font-semibold text-[24px] max-phone:text-[18px]'>Past Donation Histroy</h3>
 
                     <div className="flex w-full overflow-x-auto">
                         <table className="min-w-full border border-gray-200 rounded-lg">
