@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
+import { membersList } from '../data/memebersList'
 
 function Dashboard() {
     const [ showMenu, setShowMenu ] = useState(false)
@@ -8,6 +9,8 @@ function Dashboard() {
     const toggleMenu = (body) => {
         setShowMenu(!showMenu)
     }
+    const membersListData = membersList
+
 
     return (
     <div className='flex relative '>
@@ -24,7 +27,64 @@ function Dashboard() {
 
             {/**CONTENT */}
             <div className="contentpad">
-                Lorema, ipsum dolor sit amet consectetur adipisicing elit. Sed voluptates praesentium vero recusandae rem temporibus eaque exercitationem facere, quibusdam dolore assumenda qui nihil, corporis repellendus necessitatibus! Odio labore, inventore voluptatum fuga repellat esse quam! Animi aperiam et aut quaerat molestiae reiciendis aspernatur perspiciatis deserunt odio laboriosam repudiandae, modi quas facilis inventore velit dolore sit, cumque repellat. Facilis neque, distinctio dolores, consequatur impedit provident pariatur nemo harum soluta suscipit sequi nulla alias cumque? Aliquam delectus, sunt temporibus minima vel porro nobis necessitatibus. Quia nesciunt perspiciatis labore, vel aspernatur veniam quasi sit, ad delectus praesentium animi optio placeat. Saepe recusandae dolorum ratione asperiores maxime, laboriosam vero eligendi cum, vel pariatur labore quis, a alias sunt et ipsa ea delectus praesentium magni. Tenetur tempora architecto, consectetur dolore labore aliquid doloribus corrupti dolorum aspernatur exercitationem, veritatis debitis dolor. Esse magnam tempora animi obcaecati, aliquam voluptatibus porro dolore harum fuga blanditiis doloremque tenetur nobis fugit rerum ullam sit, labore inventore dolor sequi accusamus nulla asperiores modi numquam? Quas possimus nisi nulla est sed magnam cum nihil aliquam officiis quos quod modi, excepturi atque ab error accusantium, alias, vero illum totam! Porro praesentium omnis sunt repudiandae. Doloribus ab officiis sint distinctio, obcaecati aperiam recusandae et ut illo sapiente aliquam ipsum libero exercitationem ratione. Minus impedit nam pariatur consequuntur accusantium placeat et voluptas amet provident illo corrupti numquam magnam natus maiores quaerat debitis obcaecati eius voluptatum consequatur, corporis exercitationem est nemo quibusdam. Autem sunt praesentium minima ratione sed nostrum, nulla porro provident illo nihil? Magnam, quas. Ipsa blanditiis numquam nobis pariatur quia ex fugiat accusamus quis omnis et sequi ullam dolorum velit, iure beatae, cumque unde explicabo ut facilis, iste delectus atque? Fugit distinctio debitis repellat iste odio dolores, voluptatem impedit, asperiores libero reprehenderit sequi hic nam, quo maiores deleniti. Rerum non ab explicabo, sapiente aspernatur neque praesentium dolores quisquam quis nihil sequi repellat possimus cumque. Quasi pariatur, ipsum ad optio id voluptates repellat dolor voluptatem perferendis laboriosam sequi consectetur maiores natus, rerum at, ratione hic. Consequatur quis unde sed numquam veniam at odio nihil facilis? Vel aliquam minus dolore quaerat harum non saepe delectus, quia consequuntur impedit modi doloremque quibusdam officiis enim at qui perspiciatis laborum quod dolorem! Quia possimus, aut cupiditate corporis distinctio non ex reiciendis culpa. Molestiae sit consectetur, deserunt numquam impedit distinctio non explicabo repudiandae magnam pariatur expedita! Molestias tenetur autem expedita ad. Inventore vitae asperiores earum nisi repudiandae.
+                <h3 className='text-[24px] max-phone:text-[19px] font-bold'>Hello, <span className='text-primary-green'>Amaka Peter</span></h3>
+
+                <h5 className='mt-8'>Account Overview</h5>
+                <div className="mt-6 flex gap-6 max-phone:flex-col">
+                    <div className="flex flex-1 p-4 flex-col rounded-[10px] bg-primary-green">
+                        <h2 className='text-white text-[20px] font-semibold'>Total Beneficiaries Added</h2>
+                        <p className='text-[25px] text-white'>25</p>
+                    </div>
+                    <div className="flex flex-1 p-4 flex-col rounded-[10px] bg-amber-yellow">
+                        <h2 className='text-white text-[20px] font-semibold'>Total Donations</h2>
+                        <p className='text-[25px] text-white'>30</p>
+                    </div>
+                </div>
+
+                <div className="mt-16">
+                    {/**BENEFICAIARIES TABLE */}
+                    <div className="flex w-full overflow-x-auto">
+                        <table className="min-w-full border border-gray-200 rounded-lg">
+                            <thead className="text-[12px]">
+                            <tr>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">S/N</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Name</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Email</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Occupation</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Country</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">State</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Local Council</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Home Address</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Phone Number</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">National ID</th>
+                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {membersListData.map((member, idx) => (
+                                <tr key={idx} className="hover:bg-gray-50 text-[13px]">
+                                <td className="px-4 py-2 border-b-[1px]">{idx + 1}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.firstName} {member.lastName}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.email}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.occupation}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.country}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.state}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.localCouncil}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.homeAddress}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.phoneNumber}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.nationalId}</td>
+                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                                    <div className="flex items-center gap-3">
+                                        <span className='text-green-400 cursor-pointer'>Edit</span>
+                                        <span className='text-red-400 cursor-pointer'>Delete</span>
+                                    </div>
+                                </td>
+                                </tr>
+                            ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
         </div>
