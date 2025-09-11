@@ -7,7 +7,7 @@ function Footer() {
         <div className="padx footer bg-primary-green flex flex-col mt-auto">
             <div className="flex flex-col w-full gap-8 mt-[-30px]">
                 <div className="text-white flex items-center justify-center w-full flex-col">
-                    <h3 className='text-[56px] max-phone:text-[32px]'>Supported By:</h3>
+                    <h3 className='text-[56px] max-phone:text-[26px]'>Supported By:</h3>
                 </div>
 
                 <div className="flex items-center justify-center gap-10 flex-wrap max-tablet:flex-col max-tablet:items-center max-tablet:gap-4">
