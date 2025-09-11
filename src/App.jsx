@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Donation from './pages/Donation'
 import Members from './pages/Members'
 import Profile from './pages/Profile'
+import Blogs from './pages/Blogs'
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
                 <Route path='/members' element={<Members />} />
                 <Route path='/donation' element={<Donation />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/blogs' element={<Blogs />} />
 
 
             </Routes>
