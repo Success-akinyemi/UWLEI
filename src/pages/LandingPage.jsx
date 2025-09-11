@@ -1,31 +1,13 @@
 import BgImg from '../Assets/Images/logoImg.jpg'
-import LogoImg from '../Assets/Images/logo.jpg'
-import SupportImg from '../Assets/Images/img.jpg'
-import SupportTwoImg from '../Assets/Images/img2.jpg'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
+import Nav from '../components/Nav'
 
 
 function LandingPage() {
   return (
     <div className="">
-        {/**top nav */}
-        <div className="w-full bg-primary-green text-white py-[16px] padx flex items-center justify-between">
-            <h3 className="text-[24px] font-bold max-phone:text-[18px]">UWLEI</h3>
-            
-            <p className="text-[13px] font-semibold text-end max-phone:text-[10px]">UNIQUE WOMEN FOR LEADERSHIP EMPOWERMENT INTERNATIONAL</p>
-        </div>
-
-        {/**NAVBAR */}
-        <div className="w-full bg-white py-[32px] flex items-center justify-between padx navbar">
-            <div className="">
-                <img alt="logo" src={LogoImg} className="w-[70px] rounded-full max-phone:w-[50px]" />
-            </div>
-
-            <div className="flex items-center gap-2">
-                <Link to="/" className="text-[21px] max-phone:text-[19px] font-semibold text-brown hover:text-primary-green">Home</Link>
-                <Link to="/blogs" className="text-[21px] max-phone:text-[19px] font-semibold text-brown hover:text-primary-green">Blogs</Link>
-            </div>
-        </div>
+        <Nav />
 
         {/**Showcase */}
         <div className="w-full h-screen relative flex flex-col padx items-start justify-center">
@@ -44,22 +26,7 @@ function LandingPage() {
         </div>
 
         {/**FOOTER */}
-        <div className="padx footer bg-primary-green flex flex-col">
-            <div className="flex flex-col w-full gap-8 mt-[-30px]">
-                <div classNameName="text-white flex items-center justify-center w-full flex-col">
-                    <h3 classNameName='text-[56px] max-phone:text-[32px]'>Supported By:</h3>
-                </div>
-
-                <div classNameName="flex items-center justify-center gap-10 flex-wrap">
-                    <img alt="" src={LogoImg} classNameName='rounded-full w-[120px] h-[120px]' />
-                    <img alt="" src={SupportImg} classNameName='rounded-full w-[120px] h-[120px]' />
-                    <img alt="" src={SupportTwoImg} classNameName='rounded-full w-[120px] h-[120px] object-center' />
-                </div>
-            </div>
-
-            <div className="text-white">
-            </div>
-        </div>
+        <Footer />
     </div>
   )
 }
