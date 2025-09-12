@@ -16,7 +16,7 @@ function Footer() {
                     {
                         africanCountries.map((i, idx) => (
                             <div className="flex flex-col items-center justify-center">
-                                <img src={i.flagPng} alt={i.name} className='' />
+                                <img src={i.flagPng} alt={i.name} className='max-phone:w-[30px]' />
                                 <p className="text-[14px] text-white">{i.name}</p>
                             </div>
                         ))
