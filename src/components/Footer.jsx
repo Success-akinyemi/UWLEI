@@ -5,39 +5,61 @@ import { africanCountries } from '../data/africanCountries'
 
 function Footer() {
   return (
-        <div className="padx footer bg-primary-green flex flex-col mt-auto">
-            {/**COUNTRIES */}
-            <div className="flex flex-col w-full gap-8 mt-[-30px]">
-                <div className="text-white flex items-center justify-center w-full flex-col">
-                    <h3 className='text-[56px] max-phone:text-[26px]'>African Countries:</h3>
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Pan-African Unity NGO</h3>
+                    <p class="text-gray-400">Fostering unity and sustainable development across the African continent.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="linkedin"></i></a>
+                    </div>
                 </div>
-
-                <div className="flex items-center justify-center gap-10 flex-wrap">
-                    {
-                        africanCountries.map((i, idx) => (
-                            <div className="flex flex-col items-center justify-center">
-                                <img src={i.flagPng} alt={i.name} className='max-phone:w-[30px]' />
-                                <p className="text-[14px] text-white">{i.name}</p>
-                            </div>
-                        ))
-                    }
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Projects</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Get Involved</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>123 Unity Avenue, Nairobi, Kenya</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="mail" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>info@panafricanunity.org</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="phone" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>+254 700 123 456</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates on our work across Africa.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full text-white border-[1px] border-white" />
+                        <button class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-r-lg">
+                            <i data-feather="send" class="w-4 h-4"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-
-            {/** */}
-            <div className="flex flex-col w-full gap-8 mt-[30px]">
-                <div className="text-white flex items-center justify-center w-full flex-col">
-                    <h3 className='text-[56px] max-phone:text-[26px]'>Supported By:</h3>
-                </div>
-
-                <div className="flex items-center justify-center gap-10 flex-wrap">
-                    <img alt="" src={LogoImg} className='rounded-full w-[120px] h-[120px]' />
-                    <img alt="" src={SupportImg} className='rounded-full w-[120px] h-[120px]' />
-                    <img alt="" src={SupportTwoImg} className='rounded-full w-[120px] h-[120px] object-center' />
-                </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Pan-African Unity NGO. All rights reserved.</p>
             </div>
-
         </div>
+    </footer>
   )
 }
 

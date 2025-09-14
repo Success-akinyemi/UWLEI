@@ -273,3 +273,23 @@
 .toast-shake {
   animation: shake 0.5s ease-in-out;
 }
+
+
+/**FLAGS*/
+.flag-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+}
+.flag-card {
+    transition: all 0.3s ease;
+}
+.flag-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+@media (max-width: 640px) {
+    .flag-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}

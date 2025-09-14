@@ -2,6 +2,9 @@ import BgImg from '../Assets/Images/logoImg.jpg'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
+import Cta from '../components/Cta'
+import SupportOrganizations from '../components/SupportOrganizations'
+import Countries from '../components/Countries'
 
 
 function LandingPage() {
@@ -25,6 +28,15 @@ function LandingPage() {
             </div>
         </div>
 
+        {/**COutrie */}
+        <Countries />
+
+        {/**Support partners */}
+        <SupportOrganizations />
+        
+        {/**CTA */}
+        <Cta />
+        
         {/**FOOTER */}
         <Footer />
     </div>
