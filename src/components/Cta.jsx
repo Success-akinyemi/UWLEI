@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Cta() {
   return (
@@ -10,12 +11,15 @@ function Cta() {
                 Whether through donations, volunteering, or partnership, your support makes a difference.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
-                <button class="bg-white hover:bg-gray-100 text-green-600 px-6 py-3 rounded-lg font-medium transition duration-300">
-                    Donate Now
-                </button>
+                <Link to='/register'  class="bg-white hover:bg-gray-100 text-green-600 px-6 py-3 rounded-lg font-medium transition duration-300">
+                    Get Started
+                </Link>
+                {/**
+                 * 
                 <button class="border-2 border-white hover:bg-white hover:bg-opacity-20 px-6 py-3 rounded-lg font-medium transition duration-300">
                     Volunteer
                 </button>
+                 */}
             </div>
         </div>
     </section>

@@ -1,13 +1,25 @@
+import { africanCountries } from '../data/africanCountries'
 
 function Countries() {
   return (
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">
-                Flags of Our United Africa
+                Flags of Our Africa Countries
             </h2>
             <div class="flag-grid">
-                {/**North Africa */}
+                {
+                    africanCountries.map((country, i) => (
+                        <div key={i} class="flag-card bg-white p-3 rounded-lg shadow-md flex flex-col items-center" data-aos="fade-up">
+                            <img src={country.flagPng} alt={`${country.name} Flag`} class="w-16 h-10 object-cover mb-2" />
+                            <span class="text-sm text-gray-700 text-center">{country.name}</span>
+                        </div>
+                    ))
+                }
+
+                {/**
+                 * 
+
                 <div class="flag-card bg-white p-3 rounded-lg shadow-md flex flex-col items-center" data-aos="fade-up">
                     <img src="https://flagcdn.com/w80/eg.png" alt="Egypt Flag" class="w-16 h-10 object-cover mb-2" />
                     <span class="text-sm text-gray-700">Egypt</span>
@@ -29,7 +41,7 @@ function Countries() {
                     <span class="text-sm text-gray-700">Tunisia</span>
                 </div>
                 
-                {/**West Africa */}
+
                 <div class="flag-card bg-white p-3 rounded-lg shadow-md flex flex-col items-center" data-aos="fade-up">
                     <img src="https://flagcdn.com/w80/ng.png" alt="Nigeria Flag" class="w-16 h-10 object-cover mb-2" />
                     <span class="text-sm text-gray-700">Nigeria</span>
@@ -51,7 +63,7 @@ function Countries() {
                     <span class="text-sm text-gray-700">Mali</span>
                 </div>
                 
-                {/**Central Africa */}
+
                 <div class="flag-card bg-white p-3 rounded-lg shadow-md flex flex-col items-center" data-aos="fade-up">
                     <img src="https://flagcdn.com/w80/cm.png" alt="Cameroon Flag" class="w-16 h-10 object-cover mb-2" />
                     <span class="text-sm text-gray-700">Cameroon</span>
@@ -73,7 +85,7 @@ function Countries() {
                     <span class="text-sm text-gray-700">Central African Republic</span>
                 </div>
                 
-                {/**East Africa */}
+
                 <div class="flag-card bg-white p-3 rounded-lg shadow-md flex flex-col items-center" data-aos="fade-up">
                     <img src="https://flagcdn.com/w80/ke.png" alt="Kenya Flag" class="w-16 h-10 object-cover mb-2" />
                     <span class="text-sm text-gray-700">Kenya</span>
@@ -95,7 +107,7 @@ function Countries() {
                     <span class="text-sm text-gray-700">Rwanda</span>
                 </div>
                 
-                {/**Southern Africa */}
+
                 <div class="flag-card bg-white p-3 rounded-lg shadow-md flex flex-col items-center" data-aos="fade-up">
                     <img src="https://flagcdn.com/w80/za.png" alt="South Africa Flag" class="w-16 h-10 object-cover mb-2" />
                     <span class="text-sm text-gray-700">South Africa</span>
@@ -116,6 +128,7 @@ function Countries() {
                     <img src="https://flagcdn.com/w80/mw.png" alt="Malawi Flag" class="w-16 h-10 object-cover mb-2" />
                     <span class="text-sm text-gray-700">Malawi</span>
                 </div>
+                 */}
             </div>
         </div>
     </section>
