@@ -5,7 +5,7 @@ function Nav() {
   return (
     <div className=''>
         {/**top nav */}
-        <div className="w-full bg-primary-green text-white py-[16px] padx flex items-center justify-between">
+        <div className="w-full bg-primary-green text-white py-[16px] padx flex items-center justify-between bg-gradient-to-r from-green-600 to-yellow-500">
             <h3 className="text-[24px] font-bold max-phone:text-[18px]">UWLEI</h3>
             
             <p className="text-[13px] font-semibold text-end max-phone:text-[10px]">UNIQUE WOMEN FOR LEADERSHIP EMPOWERMENT INTERNATIONAL</p>

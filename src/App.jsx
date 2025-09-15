@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import { ToastContainer } from 'react-toastify'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
@@ -9,7 +9,8 @@ import Donation from './pages/Donation'
 import Members from './pages/Members'
 import Profile from './pages/Profile'
 import Blogs from './pages/Blogs'
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
     const [selectedCard, setSelectedCard] = useState('')
@@ -17,6 +18,13 @@ function App() {
     const closePopup = () => {
         setSelectedCard(null);
     };
+
+    useEffect(() => {
+        AOS.init({
+        duration: 1000, 
+        once: true,    
+        });
+    }, []);
 
     const renderPopup = () => {
         switch (selectedCard) {
