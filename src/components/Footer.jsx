@@ -36,7 +36,7 @@ function Footer() {
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-start">
                             <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
-                            <span>123 Unity Avenue</span>
+                            <span>123 Unity Avenue.</span>
                         </li>
                         <li class="flex items-start">
                             <i data-feather="mail" class="w-4 h-4 mt-1 mr-2"></i>
