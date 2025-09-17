@@ -36,7 +36,7 @@ function Footer() {
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-start">
                             <i data-feather="map-pin" class="w-4 h-4 mt-1 mr-2"></i>
-                            <span>123 Unity Avenue.</span>
+                            <span>No 91 Ademola Adetokumbo  Wuse 2 Abuja.</span>
                         </li>
                         <li class="flex items-start">
                             <i data-feather="mail" class="w-4 h-4 mt-1 mr-2"></i>
@@ -44,7 +44,11 @@ function Footer() {
                         </li>
                         <li class="flex items-start">
                             <i data-feather="phone" class="w-4 h-4 mt-1 mr-2"></i>
-                            <span>+254 700 123 456</span>
+                            <span>+2348034521334 (Nigeria)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-feather="phone" class="w-4 h-4 mt-1 mr-2"></i>
+                            <span>+27769192879 (South Africa)</span>
                         </li>
                     </ul>
                 </div>

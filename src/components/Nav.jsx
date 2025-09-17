@@ -17,9 +17,10 @@ function Nav() {
                 <img alt="logo" src={LogoImg} className="w-[70px] rounded-full max-phone:w-[50px]" />
             </div>
 
-            <div className="flex items-center gap-2">
-                <Link to="/" className="text-[21px] max-phone:text-[19px] font-semibold text-brown hover:text-primary-green">Home</Link>
-                <Link to="/blogs" className="text-[21px] max-phone:text-[19px] font-semibold text-brown hover:text-primary-green">Blogs</Link>
+            <div className="flex items-center gap-4 max-phone:gap-2">
+                <Link to="/" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Home</Link>
+                <Link to="/blogs" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Blogs</Link>
+                <Link to="/contact-us" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Contact Us</Link>
             </div>
         </div>
       

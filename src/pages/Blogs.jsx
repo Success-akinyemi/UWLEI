@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import { blogs } from '../data/blogs'
+import SupportOrganizations from '../components/SupportOrganizations'
+import Cta from '../components/Cta'
 
 
 function Blogs() {
@@ -46,6 +48,11 @@ function Blogs() {
             }
         </div>
 
+        {/**Support partners */}
+        <SupportOrganizations />
+        
+        {/**CTA */}
+        <Cta />
 
         <Footer />
     </div>

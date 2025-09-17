@@ -39,7 +39,9 @@
 
 /**CUSTOM STYLES**/
 @layer components {
-
+    .texth2 {
+        @apply text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12
+    }
 }
 
 
