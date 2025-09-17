@@ -1,5 +1,5 @@
 import LogoImg from '../Assets/Images/logo.jpg'
-import { Link } from 'react-router-dom'
+import { Link, Links } from 'react-router-dom'
 
 function Nav() {
   return (
@@ -13,9 +13,9 @@ function Nav() {
 
         {/**NAVBAR */}
         <div className="w-full bg-white py-[32px] flex items-center justify-between padx navbar">
-            <div className="">
+            <Link to='/' className="">
                 <img alt="logo" src={LogoImg} className="w-[70px] rounded-full max-phone:w-[50px]" />
-            </div>
+            </Link>
 
             <div className="flex items-center gap-4 max-phone:gap-2">
                 <Link to="/" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Home</Link>
