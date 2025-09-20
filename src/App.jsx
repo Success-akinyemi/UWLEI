@@ -12,9 +12,11 @@ import Blogs from './pages/Blogs'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ContactUs from './pages/ContactUs'
+import Blog from './pages/Blog'
 
 function App() {
     const [selectedCard, setSelectedCard] = useState('')
+    const [blogDetail, setBlogDetail] = useState(null)
 
     const closePopup = () => {
         setSelectedCard(null);
@@ -62,7 +64,8 @@ function App() {
 
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/blogs' element={<Blogs />} />
+                <Route path='/blogs' element={<Blogs setBlogDetail={setBlogDetail} />} />
+                <Route path='/blog/:slug' element={<Blog blogDetail={blogDetail} />} />
                 <Route path='/contact-us' element={<ContactUs />} />
 
                 <Route path='/dashboard' element={<Dashboard />} />

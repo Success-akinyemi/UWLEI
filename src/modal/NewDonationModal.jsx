@@ -1,12 +1,33 @@
 import { useState } from "react"
 import { IoClose } from "react-icons/io5"
+import { notify } from "../utils/taost"
+import { startDonation } from "../helpers/api"
 
 function NewDonationModal({ showModal, toggleModal }) {
     const [ formData, setFormData ] = useState({})
+    const [ loading, setLoading ] = useState(false)
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value })
     }
+
+    const handleDonationRequest = async () => {
+        if(loading) return
+        if(!formData?.amount) return notify('error', 'Please enter amount to donate')
+        if(!formData?.purpose) return notify('error', 'Please enter purpose of donatation')
+        
+        try {
+            setLoading(true)
+            const res = await startDonation(formData)
+
+            console.log('DLONATIOE RES', res)
+        } catch (error) {
+            
+        } finally {
+            setLoading(false)
+        }
+    }
+
   return (
         <div className="fixed z-[999] top-0 left-0 w-screen h-screen bg-black/50 flex items-center justify-center">
             <div className="bg-white w-[45vw] max-tablet:w-[80vw] max-h-[75vh] scroll-bar py-6 px-6 rounded-[20px]">
@@ -33,7 +54,7 @@ function NewDonationModal({ showModal, toggleModal }) {
                     </div>
 
                     <div className="mt-4">
-                        <div className="btn2 bg-amber-yellow">Make Donation</div>
+                        <div onClick={handleDonationRequest} className="btn2 bg-amber-yellow">{ loading ? 'Please wait...' : 'Make Donation' }</div>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ import LogoImg from '../Assets/Images/logo.jpg'
 import { useState } from 'react';
 import { notify } from '../utils/taost';
 import { FaArrowLeft } from "react-icons/fa6";
+import { login } from '../helpers/api';
 
 function Login() {
   const [formData, setFormData] = useState({});
@@ -13,18 +14,32 @@ function Login() {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };  
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
+    if(loading) return
     e.preventDefault();
     if(!formData?.username) return notify('error', 'Provide a username')
     if(!formData?.password) return notify('error', 'Provide a password')
 
     try {
+        setLoading(true)
+        const res = await login(formData)
+
+        if(res.refresh) {
+            localStorage.setItem('UWLEIACCESS', res.access)
+            localStorage.setItem('UWLEIREFRESH', res.refresh)
+            notify('success', 'Login Successful')
+
+            setTimeout(() => {
+                navigate('/dashboard')
+            }, 3000)
+        } else {
+            notify('error', 'Unable to login user')
+        }
         
-        navigate('/dashboard')
     } catch (error) {
         
     } finally {
-
+        setLoading(false)
     }
   }
 
@@ -67,7 +82,7 @@ function Login() {
         </div>
 
         <div>
-          <button onClick={handleLogin} type="submit" class="btn2 bg-primary-green w-full">Sign in</button>
+          <button onClick={handleLogin} type="submit" class="btn2 bg-primary-green w-full">{ loading ? 'Signing up....' : 'Sign in' }</button>
         </div>
       </form>
     </div>
