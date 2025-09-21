@@ -40,7 +40,7 @@ function Footer() {
                         </li>
                         <li class="flex items-start">
                             <i data-feather="mail" class="w-4 h-4 mt-1 mr-2"></i>
-                            <span>info@uwlei.org</span>
+                            <a>info@uniquewomenleadership.com</a>
                         </li>
                         <li class="flex items-start">
                             <i data-feather="phone" class="w-4 h-4 mt-1 mr-2"></i>
@@ -52,6 +52,8 @@ function Footer() {
                         </li>
                     </ul>
                 </div>
+                {/**
+                 * 
                 <div>
                     <h4 class="font-semibold mb-4">Newsletter</h4>
                     <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates on our work across Africa.</p>
@@ -62,6 +64,7 @@ function Footer() {
                         </button>
                     </div>
                 </div>
+                 */}
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
                 <p>&copy; {year} UNIQUE WOMEN FOR LEADERSHIP EMPOWERMENT INTERNATIONAL NGO. All rights reserved.</p>

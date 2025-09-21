@@ -22,7 +22,7 @@ function LandingPage() {
                 <h1 data-aos="fade-up" data-aos-delay="200" className="text-white text-[56px] font-bold w-[70%] shadow max-phone:text-[36px]">UNIQUE WOMEN FOR LEADERSHIP EMPOWERMENT INTERNATIONAL</h1>
 
                 <div data-aos="fade-up" data-aos-delay="300" className="flex items-center gap-[16px]">
-                    <Link to="/register" className="btn text-white border-[2px] border-primary-green bg-primary-green hover:bg-transparent hover:border-primary-green hover:text--primary-green transition-all duration-500 cursor-pointer">Create Account</Link>
+                    <Link to="/register" className="btn text-white border-[2px] border-primary-green bg-primary-green hover:bg-transparent hover:border-primary-green hover:text--primary-green transition-all duration-500 cursor-pointer">Join Us</Link>
                     <Link to="/login" className="btn border-[2px] border-primary-green text-white hover:bg-primary-green hover:text-white transition-all duration-500">Login</Link>
                 </div>
             </div>

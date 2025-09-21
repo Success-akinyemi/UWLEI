@@ -5,7 +5,7 @@ function Countries() {
     <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">
-                Flags of Our Africa Countries
+                We Cover All Africa Countries
             </h2>
             <div class="flag-grid">
                 {

@@ -18,9 +18,9 @@ function Nav() {
             </Link>
 
             <div className="flex items-center gap-4 max-phone:gap-2">
-                <Link to="/" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Home</Link>
-                <Link to="/blogs" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Blogs</Link>
-                <Link to="/contact-us" className="text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Contact Us</Link>
+                <Link to="/" className="btn border-[2px] border-primary-green text-white hover:bg-primary-green hover:text-white transition-all duration-500 min-w-[200px] max-tablet:min-w-[0] text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Home</Link>
+                <Link to="/blogs" className="btn border-[2px] border-primary-green text-white hover:bg-primary-green hover:text-white transition-all duration-500 min-w-[200px] max-tablet:min-w-[0] text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Blogs</Link>
+                <Link to="/contact-us" className="btn border-[2px] border-primary-green text-white hover:bg-primary-green hover:text-white transition-all duration-500 min-w-[200px] max-tablet:min-w-[0] text-[21px] max-phone:text-[17px] font-semibold text-brown hover:text-primary-green">Contact Us</Link>
             </div>
         </div>
       
