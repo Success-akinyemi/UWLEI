@@ -5,10 +5,25 @@ import Footer from "../components/Footer"
 import Nav from "../components/Nav"
 import { startDonation } from "../helpers/api"
 import { notify } from "../utils/taost"
+import MastcardImg from '../Assets/Images/masterCard.png'
+import VisaCardImg from '../Assets/Images/visa.png'
+import VerveImg from '../Assets/Images/verve.png'
 
 function Support() {
     const [ formData, setFormData ] = useState({})
     const [ loading, setLoading ] = useState(false)
+
+    const cards = [
+        {
+            img: MastcardImg
+        },
+        {
+            img: VisaCardImg
+        },
+        {
+            img: VerveImg
+        }
+    ]
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value })
@@ -53,6 +68,15 @@ function Support() {
 
                     <div className="mt-4">
                         <button onClick={handleDonationRequest} className="btn2 bg-amber-yellow">{ loading ? 'Please wait...' : 'Make Donation' }</button>
+                    </div>
+
+                    {/**CARD */}
+                    <div className="flex items-center justify-center gap-4">
+                        {
+                            cards.map((i, idx) => (
+                                <img key={idx} alt="master card" src={i.img} className="w-[50px]" />
+                            ))
+                        }
                     </div>
                 </form>
         </div>
