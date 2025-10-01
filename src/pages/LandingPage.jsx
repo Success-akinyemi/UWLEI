@@ -22,7 +22,7 @@ function LandingPage() {
         <Nav />
 
         {/**Showcase */}
-        <div className="w-full h-screen relative flex flex-col padx items-start justify-center">
+        <div className="w-full min-h-screen py-12  relative flex flex-col padx items-start justify-center">
             {/**overlay */}
             <div className="absolute top-0 left-0 w-full h-full bg-black/80 z-[10]"></div>
             <iframe
@@ -37,7 +37,7 @@ function LandingPage() {
              */}
             <div className="flex flex-col z-[20] gap-[24px]">
                 <p data-aos="fade-up" data-aos-delay="100" className="text-[20px] max-lg:text-[17px] font-bold max-phone:text-[14px] text-brown" >Welcome to UWLEI</p>
-                <h1 data-aos="fade-up" data-aos-delay="200" className="text-white text-[56px] font-bold w-[70%] shadow max-phone:text-[36px]">UNIQUE WOMEN FOR LEADERSHIP EMPOWERMENT INTERNATIONAL</h1>
+                <h1 data-aos="fade-up" data-aos-delay="200" className="text-white text-[56px] font-bold w-[70%] shadow max-phone:text-[28px]">UNIQUE WOMEN FOR LEADERSHIP EMPOWERMENT INTERNATIONAL</h1>
 
                 <div data-aos="fade-up" data-aos-delay="300" className="flex items-center gap-[16px]">
                     <Link to="/register" className="btn max-phone:text-[14px] text-white border-[2px] border-primary-green bg-primary-green hover:bg-transparent hover:border-primary-green hover:text--primary-green transition-all duration-500 cursor-pointer">Join Us</Link>
