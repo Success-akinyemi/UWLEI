@@ -13,8 +13,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ContactUs from './pages/ContactUs'
 import Blog from './pages/Blog'
-import Support from './pages/support'
 import Team from './pages/Team'
+import Support from './pages/Support'
 
 function App() {
     const [selectedCard, setSelectedCard] = useState('')
