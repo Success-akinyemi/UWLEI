@@ -15,7 +15,7 @@ function ContactUs() {
 
             <div class="grid grid-cols-1 md:grid-cols-1 gap-8">
                 {/**Address */}
-                <div className="flex flex flex-col items-center justify-center" data-aos="fade-down">
+                <div className="flex  flex-col items-center justify-center" data-aos="fade-down">
                     <h3 className="text-gray-800 text-[21px] font-semibold">Office Address</h3>
 
                     <div className="flex flex-col mt-5 gap-3">

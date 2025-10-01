@@ -2,6 +2,29 @@ import LogoImg from '../Assets/Images/logo.jpg'
 import { Link, Links } from 'react-router-dom'
 
 function Nav() {
+
+    const links = [
+        {
+            name: 'Home',
+            link: ''
+        }, 
+        {
+            name: 'Blogs',
+            link: 'blogs'
+        }, 
+        {
+            name: 'Contact Us',
+            link: 'contact-us'
+        },
+        {
+            name: 'Support',
+            link: 'support'
+        },
+        {
+            name: 'Team',
+            link: 'team'
+        },
+    ]
   return (
     <div className=''>
         {/**top nav */}
@@ -12,15 +35,17 @@ function Nav() {
         </div>
 
         {/**NAVBAR */}
-        <div className="w-full bg-white py-[32px] flex items-center justify-between padx navbar">
-            <Link to='/' className="">
+        <div className="w-full bg-white py-[32px] flex items-center justify-between padx navbar max-phone:flex-col gap-6">
+            <Link to='/' className="flex items-start justify-start">
                 <img alt="logo" src={LogoImg} className="w-[70px] rounded-full max-phone:w-[50px]" />
             </Link>
 
-            <div className="flex items-center gap-4 max-phone:gap-2">
-                <Link to="/" className="btn border-[2px] text-white !bg-gradient-to-r from-green-600 to-yellow-500 hover:text-white transition-all duration-500 min-w-[200px] max-tablet:min-w-[0] text-[21px] max-phone:text-[14px] font-semibold text-brown hover:text-primary-green">Home</Link>
-                <Link to="/blogs" className="btn border-[2px] text-white !bg-gradient-to-r from-green-600 to-yellow-500 hover:text-white transition-all duration-500 min-w-[200px] max-tablet:min-w-[0] text-[21px] max-phone:text-[14px] font-semibold text-brown hover:text-primary-green">Blogs</Link>
-                <Link to="/contact-us" className="btn border-[2px] text-white !bg-gradient-to-r from-green-600 to-yellow-500 hover:text-white transition-all duration-500 min-w-[200px] max-tablet:min-w-[0] text-[21px] max-phone:text-[14px] font-semibold text-brown hover:text-primary-green">Contact Us</Link>
+            <div className="flex w-full items-start justify-start gap-4 max-phone:gap-2 overflow-x-auto scrollbar-hide">
+                {
+                    links.map((i, idx) => (
+                        <Link key={idx} to={`/${i.link}`} className="btn w-fit !px-[80px] max-tablet:min-w-[40px] !py-[5px] border-[2px] text-white !bg-gradient-to-r from-green-600 to-yellow-500 hover:text-white transition-all duration-500  text-[15px] max-phone:text-[14px] font-semibold whitespace-nowrap">{i.name}</Link>
+                    ))
+                }
             </div>
         </div>
       

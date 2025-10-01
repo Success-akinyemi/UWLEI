@@ -13,6 +13,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ContactUs from './pages/ContactUs'
 import Blog from './pages/Blog'
+import Support from './pages/support'
+import Team from './pages/Team'
 
 function App() {
     const [selectedCard, setSelectedCard] = useState('')
@@ -67,6 +69,8 @@ function App() {
                 <Route path='/blogs' element={<Blogs setBlogDetail={setBlogDetail} />} />
                 <Route path='/blog/:slug' element={<Blog blogDetail={blogDetail} />} />
                 <Route path='/contact-us' element={<ContactUs />} />
+                <Route path='/support' element={<Support />} />
+                <Route path='/team' element={<Team />} />
 
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/members' element={<Members />} />
