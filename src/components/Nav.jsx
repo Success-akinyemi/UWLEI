@@ -20,10 +20,10 @@ function Nav() {
             name: 'Support',
             link: 'support'
         },
-        {
-            name: 'Team',
-            link: 'team'
-        },
+        //{
+        //    name: 'Team',
+        //    link: 'team'
+        //},
     ]
   return (
     <div className=''>
