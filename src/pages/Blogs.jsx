@@ -11,7 +11,7 @@ import Spinner from '../components/helpers/Spinner'
 function Blogs({ setBlogDetail }) {
     const { data, isFetching } = useFetchBlog()
 
-    //console.log('BLOG DATA', data)
+    console.log('BLOGS DATA', data)
 
     const blogs = data || []
   return (

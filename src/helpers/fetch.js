@@ -13,7 +13,7 @@ export function useFetchBlog(query){
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const { data, status} = !query ? await axios.get(`/blog`) : await axios.get(`/blog/articles-detail/${query}`)
+                const { data, status} = !query ? await axios.get(`/blog`) : await axios.get(`/blog/${query}`)
                 //console.log('Data from Hooks>>>', data, 'STATUS', status)
 
                 if(status === 200){
