@@ -4,7 +4,7 @@ import { notify } from "../utils/taost"
 import { startDonation } from "../helpers/api"
 
 function NewDonationModal({ showModal, toggleModal }) {
-    const [ formData, setFormData ] = useState({})
+    const [ formData, setFormData ] = useState({ email: 'user@gmail.com' })
     const [ loading, setLoading ] = useState(false)
 
     const handleChange = (e) => {
