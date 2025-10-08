@@ -15,6 +15,7 @@ import ContactUs from './pages/ContactUs'
 import Blog from './pages/Blog'
 import Team from './pages/Team'
 import Support from './pages/Support'
+import PaymentVerify from "./pages/PaymentVerify";
 
 function App() {
     const [selectedCard, setSelectedCard] = useState('')
@@ -76,6 +77,7 @@ function App() {
                 <Route path='/members' element={<Members />} />
                 <Route path='/donation' element={<Donation />} />
                 <Route path='/profile' element={<Profile />} />
+                <Route path="/payment/verify" element={<PaymentVerify />} />
 
 
             </Routes>
