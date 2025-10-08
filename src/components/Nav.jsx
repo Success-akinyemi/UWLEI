@@ -43,7 +43,7 @@ function Nav() {
             <div className="flex items-end justify-end w-full max-phone:items-start max-phone:justify-start gap-4 max-phone:gap-2 overflow-x-auto scrollbar-hide">
                 {
                     links.map((i, idx) => (
-                        <Link key={idx} to={`/${i.link}`} className="btn w-fit !px-[80px] max-tablet:min-w-[40px] !py-[5px] border-[2px] text-white !bg-gradient-to-r from-green-600 to-yellow-500 hover:text-white transition-all duration-500  text-[15px] max-phone:text-[14px] font-semibold whitespace-nowrap">{i.name}</Link>
+                        <Link key={idx} to={`/${i.link}`} className="btn w-fit !px-[80px] max-tablet:min-w-[40px] !py-[5px] text-white !bg-gradient-to-r from-green-600 to-yellow-500 hover:text-white transition-all duration-500  text-[15px] max-phone:text-[14px] font-semibold whitespace-nowrap">{i.name}</Link>
                     ))
                 }
             </div>
