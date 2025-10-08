@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import { BASE_URL } from "../helpers/url";
 
 function PaymentVerify() {
   const [params] = useSearchParams();
@@ -11,7 +12,7 @@ function PaymentVerify() {
   useEffect(() => {
     if (reference) {
       axios
-        .get(`https://uniquewomenleadership.com/donation/verify_payment/${reference}/`)
+        .get(`${BASE_URL}/donation/verify_payment/${reference}/`)
         .then((res) => {
           if (res.data.payment.status === "success") {
             setStatus("success");
