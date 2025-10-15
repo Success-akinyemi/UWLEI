@@ -43,6 +43,32 @@ function Dashboard() {
     fetchMembers();
   }, []);
 
+    useEffect(() => {
+        const fetchMembers = async () => {
+        try {
+            const token = localStorage.getItem("UWLEIACCESS");
+            const storedUser = localStorage.getItem("user");
+
+            if (storedUser) setMembersListData(JSON.parse(storedUser));
+
+            if (token) {
+            const res = await apiCall.get(`/main/my-added-members/`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            console.log("MEMBERS", res?.data);
+            setMembersListData(res.data);
+            }
+        } catch (err) {
+            console.error("Error fetching members:", err);
+        } finally {
+            setLoading(false);
+        }
+        };
+
+        fetchMembers();
+    }, []);
+
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
@@ -115,7 +141,7 @@ function Dashboard() {
                 <thead className="text-[12px]">
                   <tr>
                     {[
-                      "S/N",
+                      "ID",
                       "Name",
                       "Email",
                       "Occupation",
@@ -124,7 +150,7 @@ function Dashboard() {
                       "Local Council",
                       "Home Address",
                       "Phone Number",
-                      "National ID",
+                      "National ID/Passport",
                       "Action",
                     ].map((header, i) => (
                       <th
@@ -158,7 +184,7 @@ function Dashboard() {
                   ) : (
                     membersListData.map((member, idx) => (
                       <tr key={idx} className="hover:bg-gray-50 text-[13px]">
-                        <td className="px-4 py-2 border-b-[1px]">{idx + 1}</td>
+                        <td className="px-4 py-2 border-b-[1px]">{member?.member_identification_number}</td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           {member.first_name} {member.last_name}
                         </td>
@@ -184,7 +210,9 @@ function Dashboard() {
                           {member.phone_number}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                          {member.national_id}
+                            {member.national_id ?
+                                <img src={member.national_id} className='w-8 h-8 rounded-full'/> : <img src={member.passport} className='w-8 h-8 rounded-full' />  
+                            }
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           <div className="flex items-center gap-3">

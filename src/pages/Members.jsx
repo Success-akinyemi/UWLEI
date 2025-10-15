@@ -10,7 +10,6 @@ function Members() {
     const [membersListData, setMembersListData] = useState(membersList);
     //const membersListData = membersList
     const [ loading, setLoading ] = useState(false)    
-    const [ members, setMembers ] = useState(null)
 
     const toggleMenu = (body) => {
         setShowMenu(!showMenu)
@@ -26,7 +25,7 @@ function Members() {
             const token = localStorage.getItem("UWLEIACCESS");
             const storedUser = localStorage.getItem("user");
 
-            if (storedUser) setMembers(JSON.parse(storedUser));
+            if (storedUser) setMembersListData(JSON.parse(storedUser));
 
             if (token) {
             const res = await apiCall.get(`/main/my-added-members/`, {
@@ -34,7 +33,7 @@ function Members() {
             });
 
             console.log("MEMBERS", res?.data);
-            setMembers(res.data);
+            setMembersListData(res.data);
             }
         } catch (err) {
             console.error("Error fetching members:", err);
@@ -89,7 +88,7 @@ function Members() {
                       "Local Council",
                       "Home Address",
                       "Phone Number",
-                      "National ID",
+                      "National ID/Passport",
                       "Action",
                     ].map((header, i) => (
                       <th
@@ -123,7 +122,7 @@ function Members() {
                   ) : (
                     membersListData.map((member, idx) => (
                       <tr key={idx} className="hover:bg-gray-50 text-[13px]">
-                        <td className="px-4 py-2 border-b-[1px]">{idx + 1}</td>
+                        <td className="px-4 py-2 border-b-[1px]">{member?.member_identification_number}</td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           {member.first_name} {member.last_name}
                         </td>
@@ -146,10 +145,12 @@ function Members() {
                           {member.home_address}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                          {member.phone_number}
+                          {member.phone}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                          {member.national_id}
+                          {member.national_id ?
+                            <img src={member.national_id} className='w-8 h-8 rounded-full'/> : <img src={member.passport} className='w-8 h-8 rounded-full' />  
+                        }
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           <div className="flex items-center gap-3">
