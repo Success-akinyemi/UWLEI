@@ -96,20 +96,24 @@ function Register() {
       if (passportFile) data.append("passport", passportFile);
 
       const res = await register(data);
-      console.log("REGISTER RESPONSE:", res);
 
-      if (res?.status === 201 || res?.data?.status === true) {
+      if (res?.status === 201 || res?.status === true) {
         notify("success", "Registration successful, Thank You!");
         navigate("/login");
       } else {
-        notify("success", "Registration successful. Thank You!");
-        navigate("/login");
+        Object.values(res?.errors).forEach(errorArray => {
+            errorArray.forEach(msg => {
+                notify('error', msg);
+            });
+        });
+        //notify("error", "Registration successful. Thank You!");
+        //navigate("/login");
       }
     } catch (error) {
-      console.error("REG ERROR:", error.response?.data || error);
+      console.error("REG ERROR:", error?.response?.data || error);
       notify(
         "error",
-        error.response?.data?.message || "Registration failed. Please try again."
+        error?.response?.data?.message || "Registration failed. Please try again."
       );
     } finally {
       setLoading(false);

@@ -3,6 +3,7 @@ import { IoClose } from "react-icons/io5"
 import { notify } from "../utils/taost"
 import { startDonation } from "../helpers/api"
 
+
 function NewDonationModal({ showModal, toggleModal }) {
     const [ formData, setFormData ] = useState({ email: 'user@gmail.com' })
     const [ loading, setLoading ] = useState(false)
@@ -11,22 +12,31 @@ function NewDonationModal({ showModal, toggleModal }) {
         setFormData({ ...formData, [e.target.id]: e.target.value })
     }
 
-    const handleDonationRequest = async () => {
-        if(loading) return
-        if(!formData?.amount) return notify('error', 'Please enter amount to donate')
-        if(!formData?.purpose) return notify('error', 'Please enter purpose of donatation')
-        
-        try {
-            setLoading(true)
-            const res = await startDonation(formData)
+      const handleDonationRequest = async () => {
+    if (loading) return;
+    if (!formData?.email) return notify('error', 'Please enter your email');
+    if (!formData?.amount) return notify('error', 'Please enter amount to donate');
+    if (!formData?.purpose) return notify('error', 'Please enter purpose of donation');
 
-            console.log('DLONATIOE RES', res)
-        } catch (error) {
-            
-        } finally {
-            setLoading(false)
-        }
+    try {
+      setLoading(true);
+      const res = await startDonation(formData);
+
+      console.log('DONATION RESPONSE:', res);
+
+      if (res?.data?.status) {
+        const payUrl = res.data.data.authorization_url;
+        window.location.href = payUrl; 
+      } else {
+        notify('error', res?.data?.message || "Failed to initialize payment.");
+      }
+    } catch (error) {
+      notify('error', "Unable to start donation.");
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
+  };
 
   return (
         <div className="fixed z-[999] top-0 left-0 w-screen h-screen bg-black/50 flex items-center justify-center">
@@ -44,6 +54,10 @@ function NewDonationModal({ showModal, toggleModal }) {
                 </div>
 
                 <div className="flex flex-col gap-3 mt-5">
+                    <div className="inputGroup">
+                        <label className="label">Email</label>
+                        <input type="email" id='email' onChange={handleChange} className="input" />
+                    </div>
                     <div className="inputGroup">
                         <label className="label">Amount</label>
                         <input type="number" id='amount' onChange={handleChange} className="input" />

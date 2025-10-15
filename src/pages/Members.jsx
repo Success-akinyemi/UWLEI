@@ -1,12 +1,17 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import { NewMemberModal } from '../modal/NewMemberModal'
 import { membersList } from '../data/memebersList'
+import apiCall from '../helpers/apiCall'
 
 function Members() {
     const [ showMenu, setShowMenu ] = useState(false)
-    const [ showModal, setShowModal ] = useState(false)
-    const membersListData = membersList
+    const [ showModal, setShowModal ] = useState(false)    
+    const [membersListData, setMembersListData] = useState(membersList);
+    //const membersListData = membersList
+    const [ loading, setLoading ] = useState(false)    
+    const [ members, setMembers ] = useState(null)
+
     const toggleMenu = (body) => {
         setShowMenu(!showMenu)
     }
@@ -14,6 +19,32 @@ function Members() {
     const toggleModal = (body) => {
         setShowModal(!showModal)
     }
+
+        useEffect(() => {
+        const fetchMembers = async () => {
+        try {
+            const token = localStorage.getItem("UWLEIACCESS");
+            const storedUser = localStorage.getItem("user");
+
+            if (storedUser) setMembers(JSON.parse(storedUser));
+
+            if (token) {
+            const res = await apiCall.get(`/main/my-added-members/`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            console.log("MEMBERS", res?.data);
+            setMembers(res.data);
+            }
+        } catch (err) {
+            console.error("Error fetching members:", err);
+        } finally {
+            setLoading(false);
+        }
+        };
+
+        fetchMembers();
+    }, []);
 
     return (
     <div className='flex relative'>
@@ -45,45 +76,96 @@ function Members() {
                     <h3 className='text-primary-green font-semibold text-[24px] '>Beneficiaries you've added</h3>
 
                     <div className="flex w-full overflow-x-auto">
-                        <table className="min-w-full border border-gray-200 rounded-lg">
-                            <thead className="text-[12px]">
-                            <tr>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">S/N</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Name</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Email</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Occupation</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Country</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">State</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Local Council</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Home Address</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Phone Number</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">National ID</th>
-                                <th className="px-4 py-2 text-gray-500 text-start border-b-[1px]">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {membersListData.map((member, idx) => (
-                                <tr key={idx} className="hover:bg-gray-50 text-[13px]">
-                                <td className="px-4 py-2 border-b-[1px]">{idx + 1}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.firstName} {member.lastName}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.email}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.occupation}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.country}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.state}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.localCouncil}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.homeAddress}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.phoneNumber}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">{member.nationalId}</td>
-                                <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                                    <div className="flex items-center gap-3">
-                                        <span className='text-green-400 cursor-pointer'>Edit</span>
-                                        <span className='text-red-400 cursor-pointer'>Delete</span>
-                                    </div>
-                                </td>
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
+              <table className="min-w-full border border-gray-200 rounded-lg">
+                <thead className="text-[12px]">
+                  <tr>
+                    {[
+                      "S/N",
+                      "Name",
+                      "Email",
+                      "Occupation",
+                      "Country",
+                      "State",
+                      "Local Council",
+                      "Home Address",
+                      "Phone Number",
+                      "National ID",
+                      "Action",
+                    ].map((header, i) => (
+                      <th
+                        key={i}
+                        className="px-4 py-2 text-gray-500 text-start border-b-[1px]"
+                      >
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {loading ? (
+                    <tr>
+                      <td
+                        colSpan="11"
+                        className="text-center py-6 text-gray-400"
+                      >
+                        Loading...
+                      </td>
+                    </tr>
+                  ) : membersListData.length === 0 ? (
+                    <tr>
+                      <td
+                        colSpan="11"
+                        className="text-center py-6 text-gray-400"
+                      >
+                        No members found
+                      </td>
+                    </tr>
+                  ) : (
+                    membersListData.map((member, idx) => (
+                      <tr key={idx} className="hover:bg-gray-50 text-[13px]">
+                        <td className="px-4 py-2 border-b-[1px]">{idx + 1}</td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.first_name} {member.last_name}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.email}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.occupation}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.country}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.state}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.local_council}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.home_address}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.phone_number}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          {member.national_id}
+                        </td>
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
+                          <div className="flex items-center gap-3">
+                            <span className="text-green-400 cursor-pointer">
+                              Edit
+                            </span>
+                            <span className="text-red-400 cursor-pointer">
+                              Delete
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
                     </div>
                 </div>
             </div>

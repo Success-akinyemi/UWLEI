@@ -1,7 +1,7 @@
 import axios from "axios"
 
-//axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL
-axios.defaults.baseURL = 'https://uwfl.xyz'
+axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL
+//axios.defaults.baseURL = 'https://uwfl.xyz'
 //axios.defaults.baseURL = "http://127.0.0.1:8000";
 //axios.defaults.baseURL = 'https://cors-anywhere.herokuapp.com/https://uwfl.xyz'
 
@@ -13,7 +13,7 @@ export async function register(formData) {
     try {
         const res = await axios.post('/main/register-member/', formData,
             {
-                    headers: { "Content-Type": "multipart/form-data" },
+                headers: { "Content-Type": "multipart/form-data" },
             }
         )
         return res?.data

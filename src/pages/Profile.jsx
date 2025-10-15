@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import { CgProfile } from "react-icons/cg";
 import AccountOverview from '../components/AccountOverview';
@@ -6,10 +6,13 @@ import Security from '../components/Security';
 import AccountSettings from '../components/AccountSettings';
 import Activity from '../components/Activity';
 import Navbar from '../components/Navbar';
+import apiCall from '../helpers/apiCall';
 
 function Profile() {
     const [ showMenu, setShowMenu ] = useState(false)
     const [ activeTab, setActiveTab ] = useState('accountOverview')
+    const [ user, setUser ] = useState(null)
+    const [ loading, setLoading ] = useState(true)
 
     const toggleMenu = (body) => {
         setShowMenu(!showMenu)
@@ -38,6 +41,32 @@ function Profile() {
         setActiveTab(slug)
     }
 
+    useEffect(() => {
+        const fetchMembers = async () => {
+        try {
+            const token = localStorage.getItem("UWLEIACCESS");
+            const storedUser = localStorage.getItem("user");
+
+            if (storedUser) setUser(JSON.parse(storedUser));
+
+            if (token) {
+            const res = await apiCall.get(`/main/my_account/`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            console.log("USER", res?.data);
+            setUser(res.data);
+            }
+        } catch (err) {
+            console.error("Error fetching members:", err);
+        } finally {
+            setLoading(false);
+        }
+        };
+
+        fetchMembers();
+    }, []);
+
     return (
     <div className='flex relative '>
         {/**SIDEBAR */}
@@ -64,18 +93,20 @@ function Profile() {
 
                         <div className="flex gap-[20px] items-end">
                             {/**Circle */}
-                            <div className="h-[150px] w-[150px] max-phone:h-[120px] max-phone:w-[120px] border-[3px] border-white rounded-full">
-                                <CgProfile className='w-full h-full text-white' />
+                            <div className="h-[150px] w-[150px] max-phone:h-[120px] max-phone:w-[120px] border-[3px] border-white rounded-full flex items-center justify-center overflow-hidden">
+                                l{user?.passport ? (
+                                        <img alt="profile" src={user?.passport} className='w-full h-full object-cover rounded-full' />
+                                    ) : (  
+                                        <CgProfile className='w-full h-full text-white' />
+                                    )
+                                }
                             </div>
 
                             {/**INFO */}
                             <div className="flex flex-col gap-3 text-white mt-[1rem] max-phone:mt-[1rem]">
-                                <h2 className='text-[24px] font-bold max-phone:text-[20px]'>John Doe</h2>
-                                <p className='text-[17px] max-phone:text-[15px]'>johndoe@gmail.com</p>
+                                <h2 className='text-[24px] font-bold max-phone:text-[20px]'>{user?.user?.first_name} {user?.user?.last_name}</h2>
+                                <p className='text-[17px] max-phone:text-[15px]'>{user?.user?.email}</p>
 
-                                <div className="flex items-center gap-4">
-                                    <div className="btn bg-white font-semibold text-white">Edit Profile</div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -95,7 +126,7 @@ function Profile() {
                     </div>
 
                     <div className="bg-white shadow-2xl rounded-b-[20px]  border-[1px] border-gray-200 py-[25px] px-[20px]">
-                        {activeTab === 'accountOverview' && (<AccountOverview handleSelectedTab={handleSelectedTab} />)}
+                        {activeTab === 'accountOverview' && (<AccountOverview user={user} handleSelectedTab={handleSelectedTab} />)}
                         {activeTab === 'security' && (<Security />)}
                         {activeTab === 'accountSettings' && (<AccountSettings />)}
                         {activeTab === 'activity' && (<Activity />)}

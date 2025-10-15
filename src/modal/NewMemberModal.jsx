@@ -5,16 +5,27 @@ import "react-phone-input-2/lib/style.css";
 import { State } from "country-state-city";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import apiCall from "../helpers/apiCall";
+import { notify } from "../utils/taost";
 
 export function NewMemberModal({ showModal, toggleModal }) {
     const [formData, setFormData] = useState({});
+    const [ loading, setLoading ] = useState(false)
 
     const countries = countryList().getData();
 
+/**
+const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+};
+ */
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.id]: e.target.value });
+        const { id, value, files } = e.target;
+        setFormData({
+            ...formData,
+            [id]: files ? files[0] : value
+        });
     };
-
     const handleCountryChange = (selected) => {
         setFormData({
             ...formData,
@@ -46,9 +57,56 @@ export function NewMemberModal({ showModal, toggleModal }) {
 
     //upload member data here
 
+    const handleUploadMembers = async (e) => {
+        e.preventDefault();
+        if (loading) return;
+        try {
+            const token = localStorage.getItem("UWLEIACCESS");
+            if (token) {
+                setLoading(true);
+
+                const data = new FormData();
+
+                // Append all form fields
+                Object.entries(formData).forEach(([key, value]) => {
+                    if (value instanceof File) {
+                        data.append(key, value);
+                    } else {
+                        data.append(key, value || "");
+                    }
+                });
+
+                const res = await apiCall.post(`/main/create/`, 
+                    data,
+                    {
+                        headers: { 
+                            Authorization: `Bearer ${token}`,
+                            "Content-Type": "multipart/form-data",
+                        },
+                    }
+                );
+                console.log('ROO', res);
+
+                if (res.status === 201 || res.data) {
+                    notify('success', "Member added successfully");
+                    toggleModal();
+                    setFormData({});
+                    window.location.reload()
+                } else {
+                    notify('error', "Failed to add member. Please try again.");
+                }
+            }
+        } catch (error) {
+            console.error(error.response?.data || error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
     return (
         <div className="fixed z-[999] top-0 left-0 w-screen h-screen bg-black/50 flex items-center justify-center">
-            <div className="bg-white w-[45vw] max-tablet:w-[80vw] max-h-[75vh] scroll-bar py-6 px-6 rounded-[20px]">
+            <div className="bg-white w-[45vw] max-tablet:w-[95vw] max-h-[75vh] scroll-bar py-6 px-6 max-phone:px-3 rounded-[20px]">
                 <div className="flex justify-end my-4">
                     {/**CLOSE ICON */}
                     <div id="menu-btn" onClick={toggleModal} className="cursor-pointer">
@@ -57,11 +115,11 @@ export function NewMemberModal({ showModal, toggleModal }) {
                 </div>
 
                 <div className="">
-                    <h3 className='font-semibold text-[19px] text-primary-green'>Add New Beneficiaries</h3>
+                    <h3 className='font-semibold text-[19px] text-primary-green'>Add New Member</h3>
                     <p className='text-[15px] '>fill up form below to add a new member</p>
                 </div>
 
-                <div className="flex flex-col gap-3">
+                <form className="flex flex-col gap-3">
                     <div className="inputGroup">
                         <label className="label">First Name</label>
                         <input type="text" id='firstName' onChange={handleChange} className="input" />
@@ -106,7 +164,7 @@ export function NewMemberModal({ showModal, toggleModal }) {
                     <div className="inputGroup">
                         <label className="label">Local Council</label>
                         <input
-                            id="localCouncil"
+                            id="local_council"
                             onChange={handleChange}
                             type="text"
                             placeholder="Your Local council area"
@@ -119,7 +177,7 @@ export function NewMemberModal({ showModal, toggleModal }) {
                     <div className="inputGroup">
                         <label className="label">Home address</label>
                         <input
-                            id="homeAddress"
+                            id="home_address"
                             onChange={handleChange}
                             type="text"
                             placeholder="Your Home address"
@@ -144,7 +202,7 @@ export function NewMemberModal({ showModal, toggleModal }) {
                     <div className="inputGroup">
                         <label className="label">National ID Photo</label>
                         <input
-                            id="nationalId"
+                            id="government_id"
                             onChange={handleChange}
                             type="file"
                             placeholder="Your National Id"
@@ -167,9 +225,9 @@ export function NewMemberModal({ showModal, toggleModal }) {
                     </div>
 
                     <div className="mt-4">
-                        <div className="btn2 bg-amber-yellow">Submit</div>
+                        <button onClick={handleUploadMembers} type="submit" className="btn2 bg-amber-yellow">{ loading ? 'Uploading...' : 'Submit'}</button>
                     </div>
-                </div>
+                </form>
 
             </div>
         </div>

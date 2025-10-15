@@ -33,13 +33,13 @@ function Security() {
                 <div className={`text-[17px] max-phone:text-[14px] font-semibold ${ changePassword ? 'w-full' : ''}`}>
                     Password
                 </div>
-                {
+               {
                     !changePassword && (
                         <div className="">
                             <div onClick={() => setChangePassword(true)} className="bg-gray-300 text-gray-500 py-[3px] px-[6px] cursor-pointer">Change Password</div>
                         </div>
                     )
-                }
+                } 
                 {
                     changePassword && (
                         <div className="flex flex-col gap-4 w-full mt-[8px]">
@@ -65,14 +65,7 @@ function Security() {
                 }
             </div>
 
-            <div className="flex items-center justify-between w-full py-[20px] px-[10px]">
-                <div className="text-[17px] max-phone:text-[14px] font-semibold">
-                    Two-Factor Authentication
-                </div>
-                <div className="">
-                    <div className="bg-green-600 text-white py-[3px] px-[6px]">Enable 2FA</div>
-                </div>
-            </div>
+
 
         </div>
     </div>

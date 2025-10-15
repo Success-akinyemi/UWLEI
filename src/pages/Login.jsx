@@ -33,7 +33,7 @@ function Login() {
                 navigate('/dashboard')
             }, 3000)
         } else {
-            notify('error', 'Unable to login user')
+            notify('error', res.detail || 'Unable to login user')
         }
         
     } catch (error) {
