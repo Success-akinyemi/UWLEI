@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from 'axios'
 
 //axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL
-//axios.defaults.baseURL = 'https://uwfl.xyz'
-axios.defaults.baseURL = "http://127.0.0.1:8000";
+axios.defaults.baseURL = 'https://uwfl.xyz'
+//axios.defaults.baseURL = "http://127.0.0.1:8000";
 
 const token = localStorage.getItem('UWLEIACCESS')
 const refreshToken = localStorage.getItem('UWLEIREFRESH')
