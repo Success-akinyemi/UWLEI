@@ -89,7 +89,7 @@ function Members() {
                       "Home Address",
                       "Phone Number",
                       "National ID/Passport",
-                      "Action",
+                      //"Action",
                     ].map((header, i) => (
                       <th
                         key={i}
@@ -123,11 +123,11 @@ function Members() {
                     membersListData.map((member, idx) => (
                       <tr key={idx} className="hover:bg-gray-50 text-[13px]">
                         <td className="px-4 py-2 border-b-[1px]">{member?.member_identification_number}</td>
-                        <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                          {member.first_name} {member.last_name}
+                        <td className="px-4 py-2 border-b-[1px] border-l-[1px] white-space-nowrap">
+                          {member?.user_info?.first_name} {member?.user_info?.last_name}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                          {member.email}
+                          {member?.user_info?.email}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           {member.occupation}
@@ -145,13 +145,15 @@ function Members() {
                           {member.home_address}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
-                          {member.phone}
+                          +{member.phone}
                         </td>
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           {member.national_id ?
                             <img src={member.national_id} className='w-8 h-8 rounded-full'/> : <img src={member.passport} className='w-8 h-8 rounded-full' />  
                         }
                         </td>
+                        {/**
+                         * 
                         <td className="px-4 py-2 border-b-[1px] border-l-[1px]">
                           <div className="flex items-center gap-3">
                             <span className="text-green-400 cursor-pointer">
@@ -162,6 +164,7 @@ function Members() {
                             </span>
                           </div>
                         </td>
+                         */}
                       </tr>
                     ))
                   )}

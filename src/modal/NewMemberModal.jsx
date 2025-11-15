@@ -122,11 +122,11 @@ const handleChange = (e) => {
                 <form className="flex flex-col gap-3">
                     <div className="inputGroup">
                         <label className="label">First Name</label>
-                        <input type="text" id='firstName' onChange={handleChange} className="input" />
+                        <input type="text" id='first_name' onChange={handleChange} className="input" />
                     </div>
                     <div className="inputGroup">
                         <label className="label">Last Name</label>
-                        <input type="text" id='lastName' onChange={handleChange} className="input" />
+                        <input type="text" id='last_name' onChange={handleChange} className="input" />
                     </div>
                     <div className="inputGroup">{/**optional */}
                         <label className="label">Email (Optional)</label>
@@ -203,6 +203,7 @@ const handleChange = (e) => {
                         <label className="label">National ID Photo</label>
                         <input
                             id="government_id"
+                            accept=".png, .jpg, .jpeg"
                             onChange={handleChange}
                             type="file"
                             placeholder="Your National Id"
@@ -216,6 +217,7 @@ const handleChange = (e) => {
                         <label className="label">Passport</label>
                         <input
                             id="passport"
+                            accept=".png, .jpg, .jpeg"
                             onChange={handleChange}
                             type="file"
                             placeholder="Your passport"
