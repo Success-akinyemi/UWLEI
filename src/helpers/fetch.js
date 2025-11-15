@@ -5,6 +5,11 @@ import axios from 'axios'
 axios.defaults.baseURL = 'https://uwfl.xyz'
 //axios.defaults.baseURL = "http://127.0.0.1:8000";
 
+//axios.defaults.baseURL =
+//  import.meta.env.BUILD_MODE === 'DEV'
+//    ? "http://127.0.0.1:8000"
+//    : "https://uwfl.xyz";
+
 const token = localStorage.getItem('UWLEIACCESS')
 const refreshToken = localStorage.getItem('UWLEIREFRESH')
 

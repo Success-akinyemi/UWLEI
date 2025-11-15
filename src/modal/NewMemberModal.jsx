@@ -85,7 +85,6 @@ const handleChange = (e) => {
                         },
                     }
                 );
-                console.log('ROO', res);
 
                 if (res.status === 201 || res.data) {
                     notify('success', "Member added successfully");

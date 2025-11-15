@@ -65,7 +65,7 @@ function Login() {
         {/**Email */}
         <div class="inputGroup">
           <label class="label">Username</label>
-          <input id="username" onChange={handleChange} type="email" placeholder="Your username" class="input" required />
+          <input id="username" onChange={handleChange} type="text" placeholder="Your username" class="input" required />
             <div>
                 Don't have an account? <Link to="/register" class="text-primary-green underline">Register here</Link>
             </div>

@@ -259,12 +259,12 @@ function Register() {
 
           <div className="inputGroup">
             <label className="label">National ID Photo</label>
-            <input id="nationalId" type="file" className="input" />
+            <input id="government_id" type="file" className="input" accept=".png, .jpg, .jpeg" />
           </div>
 
           <div className="inputGroup">
             <label className="label">Passport</label>
-            <input id="passport" type="file" className="input" />
+            <input id="passport" type="file" className="input" accept=".png, .jpg, .jpeg" />
           </div>
 
           <div className="inputGroup">
