@@ -16,6 +16,7 @@ import Blog from './pages/Blog'
 import Team from './pages/Team'
 import Support from './pages/Support'
 import PaymentVerify from "./pages/PaymentVerify";
+import ActivationPage from './pages/ActivationPage'
 
 function App() {
     const [selectedCard, setSelectedCard] = useState('')
@@ -72,6 +73,8 @@ function App() {
                 <Route path='/contact-us' element={<ContactUs />} />
                 <Route path='/support' element={<Support />} />
                 <Route path='/team' element={<Team />} />
+
+                <Route path='/account-activation' element={<ActivationPage />} />
 
                 <Route path='/dashboard' element={<Dashboard />} />
                 <Route path='/members' element={<Members />} />

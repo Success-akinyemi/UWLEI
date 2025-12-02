@@ -15,6 +15,7 @@ function Dashboard() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+
   const toggleMenu = () => setShowMenu(!showMenu);
 
   useEffect(() => {
@@ -30,7 +31,7 @@ function Dashboard() {
             headers: { Authorization: `Bearer ${token}` },
           });
 
-          console.log("USER", res?.data);
+          //console.log("USER", res?.data);
           setUser(res.data);
         }
       } catch (err) {
@@ -56,7 +57,7 @@ function Dashboard() {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
-            console.log("MEMBERS", res?.data);
+            //console.log("MEMBERS", res?.data);
             setMembersListData(res.data);
             }
         } catch (err) {

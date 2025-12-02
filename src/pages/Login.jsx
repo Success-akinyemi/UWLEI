@@ -29,9 +29,16 @@ function Login() {
             localStorage.setItem('UWLEIREFRESH', res.refresh)
             notify('success', 'Login Successful')
 
-            setTimeout(() => {
-                navigate('/dashboard')
-            }, 3000)
+            if(!res.user.isActivated) {
+                setTimeout(() => {
+                    navigate('/account-activation')
+                }, 3000)
+            } else {
+                setTimeout(() => {
+                    navigate('/dashboard')
+                }, 3000)
+            }
+
         } else {
             notify('error', res.detail || 'Unable to login user')
         }

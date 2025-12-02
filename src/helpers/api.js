@@ -1,8 +1,9 @@
 import axios from "axios"
+import apiCall from "./apiCall";
 
 //axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL
-axios.defaults.baseURL = 'https://uwfl.xyz'
-//axios.defaults.baseURL = "http://127.0.0.1:8000";
+//axios.defaults.baseURL = 'https://uwfl.xyz'
+axios.defaults.baseURL = "http://127.0.0.1:8000";
 
 //axios.defaults.baseURL =
 //  import.meta.env.BUILD_MODE === 'DEV'
@@ -56,5 +57,44 @@ export async function startDonation(formData) {
     }
 }
 
+//make activation account req
+export async function startActivation(formData) {
+    try {
+        const accessToken = localStorage.getItem("UWLEIACCESS");
 
-//members
+        const res = await apiCall.post(
+            "/main/activate/init/",
+            formData,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            }
+        );
+
+        return res;
+    } catch (error) {
+        return error.response || { data: "Unable to make activation request" };
+    }
+}
+
+//activate account
+export async function verifyPayment(formData) {
+    try {
+        const accessToken = localStorage.getItem("UWLEIACCESS");
+
+        const res = await apiCall.post(
+            "/main/activate/verify/",
+            formData,
+            {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            }
+        );
+
+        return res;
+    } catch (error) {
+        return error.response || { data: "Unable to make activation request" };
+    }
+}
